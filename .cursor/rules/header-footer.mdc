@@ -1,0 +1,23 @@
+---
+description: Cabeçalho e rodapé únicos para todas as páginas da intranet
+alwaysApply: true
+---
+
+# Cabeçalho e rodapé compartilhados
+
+A top bar, o header, o menu principal e o footer são **iguais em todas as páginas**.
+
+No `<head>` de **todas** as páginas, as duas primeiras tags (depois de `<head>`) devem ser exatamente:
+
+```html
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+```
+
+Não remova nem altere essas linhas. Elas obrigam o navegador a ler acentos em UTF-8 e evitam `DiretÃ³rio`, `InÃ­cio` etc.
+
+- Fonte da verdade: `index.html` (blocos top-bar, `site-header`, `main-nav` e `site-footer`).
+- Ao criar páginas novas, **copie esses blocos sem alteração**. Não simplifique, não mude links, textos, classes nem o estado ativo.
+- Alterações de layout, cores, logo, contatos ou itens de menu devem ser feitas **uma vez** nesses blocos e replicadas para as demais páginas, nunca só na página nova.
+- O conteúdo específico da página fica apenas em `<main>`.
+- A intranet será um portal dinâmico; tratar header/footer como um único componente compartilhado.

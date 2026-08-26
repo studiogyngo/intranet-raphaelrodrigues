@@ -1,0 +1,18 @@
+---
+description: HTML da intranet deve permanecer em UTF-8; acentos em colaboradores.html usam entidades
+alwaysApply: true
+---
+
+# Encoding UTF-8
+
+Toda página HTML deve começar o `<head>` com:
+
+```html
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+```
+
+- `index.html` e `perfil.html` são UTF-8 **com BOM**.
+- `colaboradores.html` usa **entidades HTML numéricas** (`&#243;` etc.) para caracteres não ASCII, além do mesmo bloco de charset no head.
+- Nunca use `Set-Content` do PowerShell em HTML. Grave com `[System.IO.File]::WriteAllBytes` e `UTF8Encoding($false)`, ou rode `tools/fix-html-utf8.ps1`.
+- O Apache envia UTF-8 via `.htaccess` (`AddDefaultCharset UTF-8`).

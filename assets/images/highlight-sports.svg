@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Imagem card esportes">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0e0e0e"/>
+      <stop offset="1" stop-color="#0e0e0e"/>
+    </linearGradient>
+    <linearGradient id="field" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0F6B3C"/>
+      <stop offset="1" stop-color="#094227"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <rect x="90" y="145" width="620" height="300" rx="26" fill="url(#field)" opacity="0.95"/>
+  <g opacity="0.28" stroke="#E9F2FF" stroke-width="6" fill="none">
+    <rect x="130" y="185" width="540" height="220" rx="18"/>
+    <line x1="400" y1="185" x2="400" y2="405"/>
+    <circle cx="400" cy="295" r="52"/>
+  </g>
+  <circle cx="610" cy="210" r="30" fill="#ebb841" opacity="0.35"/>
+</svg>
