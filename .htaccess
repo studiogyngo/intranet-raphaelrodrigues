@@ -1,3 +1,4 @@
+DirectoryIndex login.html index.html
 AddDefaultCharset UTF-8
 AddCharset UTF-8 .html .css .js .svg
 AddType application/pdf .pdf

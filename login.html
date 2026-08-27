@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Acesso à INTRANET — informe seus dados para entrar no portal interno.">
+  <meta name="keywords" content="intranet, login, acesso, colaboradores">
+  <meta name="author" content="INTRANET">
+  <meta name="theme-color" content="#0e0e0e">
+  <title>Acesso à INTRANET</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+</head>
+<body class="login-page">
+  <main class="login-wrap" id="conteudo-principal">
+    <section class="login-card" aria-labelledby="login-title">
+      <img src="assets/images/logo-intranet.png" alt="INTRANET" class="login-card__logo" width="400" height="140">
+      <p class="login-card__slogan">O CANAL QUE CONECTA A EMPRESA.</p>
+      <h1 class="login-card__title" id="login-title">Acesso à intranet</h1>
+      <p class="login-card__lead">Informe os dados do colaborador já cadastrado para entrar.</p>
+
+      <form class="login-form" id="login-form" novalidate>
+        <label class="directory-field">
+          <span>E-mail corporativo</span>
+          <input type="email" name="email" id="login-email" value="bruno.oliveira@empresa.com" required autocomplete="username">
+        </label>
+        <label class="directory-field">
+          <span>Senha</span>
+          <input type="password" name="senha" id="login-password" value="intranet" required autocomplete="current-password" minlength="8">
+        </label>
+        <p class="login-form__error" id="login-error" hidden>E-mail ou senha inválidos.</p>
+        <button type="submit" class="btn btn--yellow login-form__submit">Entrar</button>
+      </form>
+
+      <p class="login-card__hint">Acesso de demonstração: Bruno Oliveira · Assistente Financeiro</p>
+    </section>
+  </main>
+  <script src="script.js" defer></script>
+</body>
+</html>

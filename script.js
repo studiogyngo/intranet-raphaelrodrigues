@@ -8,6 +8,90 @@
 
   const NOTICE_STORAGE_KEY = 'intranet_aviso_ts';
   const NOTICE_TTL_MS = 24 * 60 * 60 * 1000;
+  const AUTH_STORAGE_KEY = 'intranet_logged_in';
+  const AUTH_EMAIL = 'bruno.oliveira@empresa.com';
+  const AUTH_PASSWORD = 'intranet';
+
+  /* ============================================
+     Módulo: Acesso (login)
+     ============================================ */
+  const AuthModule = {
+    isLoginPage() {
+      return document.body?.classList.contains('login-page') === true;
+    },
+
+    isLoggedIn() {
+      try {
+        return sessionStorage.getItem(AUTH_STORAGE_KEY) === '1';
+      } catch (err) {
+        return false;
+      }
+    },
+
+    setLoggedIn() {
+      try {
+        sessionStorage.setItem(AUTH_STORAGE_KEY, '1');
+      } catch (err) {
+        /* storage indisponível */
+      }
+    },
+
+    logout() {
+      try {
+        sessionStorage.removeItem(AUTH_STORAGE_KEY);
+      } catch (err) {
+        /* storage indisponível */
+      }
+      window.location.replace('login.html');
+    },
+
+    safeNext() {
+      const next = new URLSearchParams(window.location.search).get('next') || 'index.html';
+      if (
+        !next ||
+        next.startsWith('http') ||
+        next.startsWith('//') ||
+        next.includes('..') ||
+        next.toLowerCase().startsWith('login')
+      ) {
+        return 'index.html';
+      }
+      return next;
+    },
+
+    guard() {
+      if (this.isLoginPage()) {
+        if (this.isLoggedIn()) {
+          window.location.replace(this.safeNext());
+        }
+        return;
+      }
+      if (!this.isLoggedIn()) {
+        const page = (window.location.pathname.split('/').pop() || 'index.html') + window.location.search + window.location.hash;
+        window.location.replace('login.html?next=' + encodeURIComponent(page));
+      }
+    },
+
+    init() {
+      const form = document.getElementById('login-form');
+      if (!form) return;
+      const error = document.getElementById('login-error');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = String(form.elements.namedItem('email')?.value || '').trim().toLowerCase();
+        const senha = String(form.elements.namedItem('senha')?.value || '');
+        if (email === AUTH_EMAIL && senha === AUTH_PASSWORD) {
+          if (error) error.hidden = true;
+          this.setLoggedIn();
+          window.location.replace(this.safeNext());
+          return;
+        }
+        if (error) error.hidden = false;
+      });
+    }
+  };
+
+  AuthModule.guard();
 
   /* ============================================
      Módulo: Data e hora (Top Bar)
@@ -233,6 +317,7 @@
 
       document.getElementById('intranet-logout')?.addEventListener('click', (e) => {
         e.preventDefault();
+        AuthModule.logout();
       });
     }
   };
@@ -1323,6 +1408,7 @@
      Inicialização
      ============================================ */
   function init() {
+    AuthModule.init();
     DateTimeModule.init();
     StickyNavModule.init();
     MobileMenuModule.init();
