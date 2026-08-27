@@ -2740,7 +2740,7 @@ button {
   align-items: center;
   justify-content: center;
   min-width: 44px;
-  padding: 4px 0;
+  padding: 4px 6px;
   background: var(--color-gray-bg);
   border-radius: 4px;
   font-size: 0.75rem;
