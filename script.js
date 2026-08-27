@@ -289,7 +289,7 @@
   };
 
   /* ============================================
-     Módulo: Fale com a Diretoria
+     Módulo: Fale com o RH
      ============================================ */
   const BoardModalModule = {
     modal: null,
