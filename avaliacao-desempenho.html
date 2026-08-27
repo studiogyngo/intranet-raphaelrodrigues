@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Pesquisa de Período de Experiência — 80 dias. Gestor avalia colaborador — INTRANET.">
+  <meta name="description" content="Avaliação de Desempenho. Área do Gestor — INTRANET.">
   <meta name="keywords" content="intranet, portal interno, colaboradores, documentos, RH">
   <meta name="author" content="INTRANET">
   <meta name="theme-color" content="#0e0e0e">
-  <title>Avaliação Período Experiência — 80 dias — INTRANET</title>
+  <title>Avaliação de Desempenho — INTRANET</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -219,198 +219,15 @@
         <span aria-hidden="true"> / </span>
         <span>Área do Gestor</span>
         <span aria-hidden="true"> / </span>
-        <span>Avaliação 80 dias</span>
+        <span>Avaliação de Desempenho</span>
       </nav>
 
       <span class="badge badge--blue directory-kicker">Área do Gestor</span>
-      <h1 class="directory-title">Pesquisa de Período de Experiência — 80 dias</h1>
-      <p class="directory-lead">Gestor avalia colaborador. A identificação vem do perfil e não pode ser alterada. Preencha a escala, o parecer e a recomendação.</p>
-
-      <form class="eval-form" id="eval-80-form" novalidate>
-        <div class="profile-fields-card">
-          <h2 class="profile-fields-card__title">Identificação</h2>
-          <div class="eval-identity">
-            <img class="eval-identity__photo" src="assets/images/author-6.jpg" alt="Foto de Bruno Oliveira" width="72" height="72">
-            <div>
-              <p class="eval-identity__name">Bruno Oliveira</p>
-              <p class="eval-identity__job">Assistente Financeiro</p>
-              <p class="eval-identity__meta">Financeiro · Unidade Anápolis</p>
-            </div>
-          </div>
-          <input type="hidden" name="colaborador" value="Bruno Oliveira">
-          <input type="hidden" name="cargo" value="Assistente Financeiro">
-          <input type="hidden" name="gestor" value="Marcelo Dias">
-          <input type="hidden" name="data" id="eval-date" value="">
-          <input type="hidden" name="area" value="Financeiro">
-        </div>
-
-        <div class="profile-fields-card">
-          <h2 class="profile-fields-card__title">Escala de Avaliação</h2>
-          <ul class="eval-legend">
-            <li><strong>1</strong> Muito abaixo do esperado</li>
-            <li><strong>2</strong> Abaixo do esperado</li>
-            <li><strong>3</strong> Dentro do esperado</li>
-            <li><strong>4</strong> Acima do esperado</li>
-            <li><strong>5</strong> Muito acima do esperado</li>
-          </ul>
-
-          <h3 class="eval-block__title">Desempenho Técnico</h3>
-          <div class="eval-item">
-            <p class="eval-item__question"><span class="eval-item__num">1)</span> Entrega resultados com qualidade.</p>
-            <div class="eval-scale" role="radiogroup" aria-label="Questão 1, nota de 1 a 5">
-              <label class="eval-scale__opt"><input type="radio" name="q1" value="1" required><span>1</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q1" value="2"><span>2</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q1" value="3"><span>3</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q1" value="4"><span>4</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q1" value="5"><span>5</span></label>
-            </div>
-          </div>
-          <div class="eval-item">
-            <p class="eval-item__question"><span class="eval-item__num">2)</span> Demonstra domínio das atividades.</p>
-            <div class="eval-scale" role="radiogroup" aria-label="Questão 2, nota de 1 a 5">
-              <label class="eval-scale__opt"><input type="radio" name="q2" value="1" required><span>1</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q2" value="2"><span>2</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q2" value="3"><span>3</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q2" value="4"><span>4</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q2" value="5"><span>5</span></label>
-            </div>
-          </div>
-          <div class="eval-item">
-            <p class="eval-item__question"><span class="eval-item__num">3)</span> Resolve problemas com autonomia.</p>
-            <div class="eval-scale" role="radiogroup" aria-label="Questão 3, nota de 1 a 5">
-              <label class="eval-scale__opt"><input type="radio" name="q3" value="1" required><span>1</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q3" value="2"><span>2</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q3" value="3"><span>3</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q3" value="4"><span>4</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q3" value="5"><span>5</span></label>
-            </div>
-          </div>
-          <div class="eval-item">
-            <p class="eval-item__question"><span class="eval-item__num">4)</span> Mantém produtividade adequada.</p>
-            <div class="eval-scale" role="radiogroup" aria-label="Questão 4, nota de 1 a 5">
-              <label class="eval-scale__opt"><input type="radio" name="q4" value="1" required><span>1</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q4" value="2"><span>2</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q4" value="3"><span>3</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q4" value="4"><span>4</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q4" value="5"><span>5</span></label>
-            </div>
-          </div>
-
-          <h3 class="eval-block__title">Competências Comportamentais</h3>
-          <div class="eval-item">
-            <p class="eval-item__question"><span class="eval-item__num">5)</span> Trabalha bem em equipe.</p>
-            <div class="eval-scale" role="radiogroup" aria-label="Questão 5, nota de 1 a 5">
-              <label class="eval-scale__opt"><input type="radio" name="q5" value="1" required><span>1</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q5" value="2"><span>2</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q5" value="3"><span>3</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q5" value="4"><span>4</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q5" value="5"><span>5</span></label>
-            </div>
-          </div>
-          <div class="eval-item">
-            <p class="eval-item__question"><span class="eval-item__num">6)</span> Demonstra responsabilidade e comprometimento.</p>
-            <div class="eval-scale" role="radiogroup" aria-label="Questão 6, nota de 1 a 5">
-              <label class="eval-scale__opt"><input type="radio" name="q6" value="1" required><span>1</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q6" value="2"><span>2</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q6" value="3"><span>3</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q6" value="4"><span>4</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q6" value="5"><span>5</span></label>
-            </div>
-          </div>
-          <div class="eval-item">
-            <p class="eval-item__question"><span class="eval-item__num">7)</span> Tem postura alinhada à cultura organizacional.</p>
-            <div class="eval-scale" role="radiogroup" aria-label="Questão 7, nota de 1 a 5">
-              <label class="eval-scale__opt"><input type="radio" name="q7" value="1" required><span>1</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q7" value="2"><span>2</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q7" value="3"><span>3</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q7" value="4"><span>4</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q7" value="5"><span>5</span></label>
-            </div>
-          </div>
-          <div class="eval-item">
-            <p class="eval-item__question"><span class="eval-item__num">8)</span> Demonstra proatividade.</p>
-            <div class="eval-scale" role="radiogroup" aria-label="Questão 8, nota de 1 a 5">
-              <label class="eval-scale__opt"><input type="radio" name="q8" value="1" required><span>1</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q8" value="2"><span>2</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q8" value="3"><span>3</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q8" value="4"><span>4</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q8" value="5"><span>5</span></label>
-            </div>
-          </div>
-
-          <h3 class="eval-block__title">Evolução</h3>
-          <div class="eval-item">
-            <p class="eval-item__question"><span class="eval-item__num">9)</span> Evoluiu desde o início da experiência.</p>
-            <div class="eval-scale" role="radiogroup" aria-label="Questão 9, nota de 1 a 5">
-              <label class="eval-scale__opt"><input type="radio" name="q9" value="1" required><span>1</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q9" value="2"><span>2</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q9" value="3"><span>3</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q9" value="4"><span>4</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q9" value="5"><span>5</span></label>
-            </div>
-          </div>
-          <div class="eval-item">
-            <p class="eval-item__question"><span class="eval-item__num">10)</span> Aplica feedbacks recebidos.</p>
-            <div class="eval-scale" role="radiogroup" aria-label="Questão 10, nota de 1 a 5">
-              <label class="eval-scale__opt"><input type="radio" name="q10" value="1" required><span>1</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q10" value="2"><span>2</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q10" value="3"><span>3</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q10" value="4"><span>4</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q10" value="5"><span>5</span></label>
-            </div>
-          </div>
-          <div class="eval-item eval-item--last">
-            <p class="eval-item__question"><span class="eval-item__num">11)</span> Demonstra capacidade de desenvolvimento contínuo.</p>
-            <div class="eval-scale" role="radiogroup" aria-label="Questão 11, nota de 1 a 5">
-              <label class="eval-scale__opt"><input type="radio" name="q11" value="1" required><span>1</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q11" value="2"><span>2</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q11" value="3"><span>3</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q11" value="4"><span>4</span></label>
-              <label class="eval-scale__opt"><input type="radio" name="q11" value="5"><span>5</span></label>
-            </div>
-          </div>
-        </div>
-
-        <div class="profile-fields-card">
-          <h2 class="profile-fields-card__title">Avaliação Final</h2>
-          <div class="eval-parecer">
-            <label class="directory-field">
-              <span>Principais Resultados</span>
-              <textarea name="principais_resultados" id="eval-resultados" rows="5" required placeholder="Descreva os principais resultados do período"></textarea>
-            </label>
-            <label class="directory-field">
-              <span>Pontos de Desenvolvimento</span>
-              <textarea name="pontos_desenvolvimento" id="eval-desenvolvimento" rows="5" required placeholder="Descreva os pontos de desenvolvimento"></textarea>
-            </label>
-          </div>
-        </div>
-
-        <div class="profile-fields-card">
-          <h2 class="profile-fields-card__title">Recomendação Final</h2>
-          <div class="eval-recommend" role="radiogroup" aria-label="Recomendação final do gestor">
-            <label class="eval-recommend__opt">
-              <input type="radio" name="recomendacao" value="efetivacao" required>
-              <span>Efetivação recomendada</span>
-            </label>
-            <label class="eval-recommend__opt">
-              <input type="radio" name="recomendacao" value="desligamento">
-              <span>Desligamento</span>
-            </label>
-          </div>
-          <div class="eval-parecer eval-parecer--spaced">
-            <label class="directory-field">
-              <span>Comentários Finais</span>
-              <textarea name="comentarios_finais" id="eval-comentarios" rows="5" required placeholder="Registre os comentários finais da avaliação"></textarea>
-            </label>
-          </div>
-          <p class="profile-form__feedback" id="eval-80-feedback" hidden></p>
-          <div class="profile-form__actions">
-            <button type="submit" class="btn btn--yellow">Enviar avaliação</button>
-          </div>
-        </div>
-      </form>
+      <h1 class="directory-title">Avaliação de Desempenho</h1>
+      <p class="directory-lead">Espaço do gestor para acompanhar e registrar a avaliação de desempenho da equipe.</p>
     </div>
   </main>
+
 
   <!-- ============================================
        11. FOOTER

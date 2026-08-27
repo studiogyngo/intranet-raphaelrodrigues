@@ -294,10 +294,35 @@
   const BoardModalModule = {
     modal: null,
 
+    user: {
+      nome: 'Bruno Oliveira',
+      email: 'bruno.oliveira@empresa.com',
+      fone: '(62) 3224-7585',
+      departamento: 'Financeiro'
+    },
+
+    fillUser(form) {
+      if (!form) return;
+      const nome = form.elements.namedItem('nome');
+      const email = form.elements.namedItem('email');
+      const fone = form.elements.namedItem('fone');
+      const departamento = form.elements.namedItem('departamento');
+      if (nome) nome.value = this.user.nome;
+      if (email) email.value = this.user.email;
+      if (fone) fone.value = this.user.fone;
+      if (departamento) departamento.value = this.user.departamento;
+    },
+
     open() {
       if (!this.modal) return;
+      const form = document.getElementById('board-form');
+      const feedback = document.getElementById('board-feedback');
+      form?.reset();
+      this.fillUser(form);
+      if (feedback) feedback.hidden = true;
       this.modal.hidden = false;
       document.body.style.overflow = 'hidden';
+      form?.elements.namedItem('mensagem')?.focus();
     },
 
     close() {
@@ -495,6 +520,7 @@
     },
 
     async loadQuotes() {
+      if (!document.getElementById('quote-usd')) return;
       const res = await fetch('https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,BTC-BRL,GBP-BRL');
       if (!res.ok) throw new Error('cotacoes');
       const data = await res.json();
@@ -568,9 +594,9 @@
       const modal = this.modal;
       if (!modal || !card) return;
 
-      const name = card.querySelector('.directory-card__name')?.textContent.trim() || '';
-      const role = card.querySelector('.directory-card__role')?.textContent.trim() || card.dataset.role || '';
-      const photo = card.querySelector('.directory-card__photo');
+      const name = card.querySelector('.directory-card__name, .org-card__name')?.textContent.trim() || card.dataset.name || '';
+      const role = card.querySelector('.directory-card__role, .org-card__role')?.textContent.trim() || card.dataset.role || '';
+      const photo = card.querySelector('.directory-card__photo, .org-card__photo');
       const email = card.dataset.email || '';
       const dept = card.dataset.dept || '';
       const unit = card.dataset.unit || '';
@@ -619,10 +645,26 @@
       document.body.style.overflow = '';
     },
 
+    bindPersonModal() {
+      if (this.modalBound) return;
+      this.modal = document.getElementById('person-modal');
+      if (!this.modal) return;
+      this.modalBound = true;
+      this.modal.querySelectorAll('[data-close-person]').forEach((el) => {
+        el.addEventListener('click', () => this.closePerson());
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && this.modal && !this.modal.hidden) {
+          this.closePerson();
+        }
+      });
+    },
+
     init() {
       const results = document.getElementById('directory-results');
       const empty = document.getElementById('directory-empty');
       const form = document.getElementById('directory-filters');
+      this.bindPersonModal();
       if (!results || !form) return;
 
       const cards = Array.from(results.querySelectorAll('.directory-card'));
@@ -632,16 +674,6 @@
       const role = document.getElementById('directory-role');
       const status = document.getElementById('directory-status');
       const viewBtns = form.querySelectorAll('.directory-view__btn');
-
-      this.modal = document.getElementById('person-modal');
-      this.modal?.querySelectorAll('[data-close-person]').forEach((el) => {
-        el.addEventListener('click', () => this.closePerson());
-      });
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && this.modal && !this.modal.hidden) {
-          this.closePerson();
-        }
-      });
 
       const applyFilters = () => {
         const term = (search?.value || '').trim().toLowerCase();
@@ -1098,6 +1130,196 @@
   };
 
   /* ============================================
+     Módulo: Organograma interativo
+     ============================================ */
+  const OrgChartModule = {
+    fitToWidth() {
+      const wrap = document.querySelector('.org-chart-wrap');
+      const tree = document.getElementById('org-tree');
+      if (!wrap || !tree || !document.body.classList.contains('org-fullscreen')) return;
+
+      window.clearTimeout(this.fitTimer);
+      this.fitTimer = window.setTimeout(() => {
+        tree.style.transform = 'none';
+        wrap.style.height = '';
+
+        if (window.innerWidth <= 760) return;
+
+        const available = wrap.clientWidth;
+        const needed = tree.scrollWidth;
+        const scale = needed > 0 ? Math.min(1, available / needed) : 1;
+
+        tree.style.transformOrigin = 'top center';
+        tree.style.marginLeft = 'auto';
+        tree.style.marginRight = 'auto';
+        tree.style.transform = scale < 1 ? `scale(${scale})` : '';
+        wrap.style.height = `${Math.ceil(tree.getBoundingClientRect().height)}px`;
+      }, 30);
+    },
+
+    init() {
+      const tree = document.getElementById('org-tree');
+      if (!tree) return;
+
+      DirectoryModule.bindPersonModal();
+
+      tree.querySelectorAll('.org-card').forEach((card) => {
+        card.addEventListener('click', () => {
+          tree.querySelectorAll('.org-card.is-selected').forEach((el) => el.classList.remove('is-selected'));
+          card.classList.add('is-selected');
+          DirectoryModule.openPerson(card);
+        });
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            card.click();
+          }
+        });
+      });
+
+      this.fitToWidth();
+      window.addEventListener('resize', () => this.fitToWidth());
+    }
+  };
+
+  /* ============================================
+     Módulo: Requisição de materiais
+     ============================================ */
+  const MaterialsRequestModule = {
+    maxFiles: 5,
+    maxBytes: 2 * 1024 * 1024,
+    types: ['pdf', 'jpg', 'jpeg', 'png', 'doc', 'docx', 'xls', 'xlsx'],
+    files: [],
+
+    ext(name) {
+      const parts = String(name).toLowerCase().split('.');
+      return parts.length > 1 ? parts.pop() : '';
+    },
+
+    renderList() {
+      const list = document.getElementById('req-file-list');
+      if (!list) return;
+      list.hidden = this.files.length === 0;
+      list.innerHTML = '';
+      this.files.forEach((file, index) => {
+        const li = document.createElement('li');
+        const label = document.createElement('span');
+        label.textContent = `${file.name} (${Math.max(1, Math.round(file.size / 1024))} KB)`;
+        const remove = document.createElement('button');
+        remove.type = 'button';
+        remove.className = 'req-drop__remove';
+        remove.textContent = 'Remover';
+        remove.addEventListener('click', () => {
+          this.files.splice(index, 1);
+          this.renderList();
+        });
+        li.append(label, remove);
+        list.append(li);
+      });
+    },
+
+    addFiles(fileList) {
+      const feedback = document.getElementById('req-feedback');
+      const incoming = Array.from(fileList || []);
+      let error = '';
+
+      incoming.forEach((file) => {
+        if (this.files.length >= this.maxFiles) {
+          error = 'É possível anexar no máximo 5 arquivos.';
+          return;
+        }
+        if (!this.types.includes(this.ext(file.name))) {
+          error = 'Há arquivo com formato não permitido.';
+          return;
+        }
+        if (file.size > this.maxBytes) {
+          error = 'Cada arquivo deve ter no máximo 2 MB.';
+          return;
+        }
+        this.files.push(file);
+      });
+
+      if (feedback) {
+        if (error) {
+          feedback.hidden = false;
+          feedback.textContent = error;
+          feedback.classList.add('is-error');
+          feedback.classList.remove('is-ok');
+        } else {
+          feedback.hidden = true;
+        }
+      }
+      this.renderList();
+    },
+
+    init() {
+      const form = document.getElementById('req-form');
+      if (!form) return;
+
+      const drop = document.getElementById('req-drop');
+      const input = document.getElementById('req-files');
+      const browse = document.getElementById('req-browse');
+      const feedback = document.getElementById('req-feedback');
+      const check = form.querySelector('input[name="declaracao"]');
+
+      browse?.addEventListener('click', () => input?.click());
+      input?.addEventListener('change', () => {
+        this.addFiles(input.files);
+        input.value = '';
+      });
+
+      ['dragenter', 'dragover'].forEach((eventName) => {
+        drop?.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          drop.classList.add('is-drag');
+        });
+      });
+      ['dragleave', 'drop'].forEach((eventName) => {
+        drop?.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          drop.classList.remove('is-drag');
+        });
+      });
+      drop?.addEventListener('drop', (e) => this.addFiles(e.dataTransfer?.files));
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const invalid = form.querySelector(':invalid');
+        form.querySelectorAll('.is-invalid').forEach((el) => el.classList.remove('is-invalid'));
+        check?.closest('.req-check')?.classList.remove('is-invalid');
+
+        if (invalid) {
+          invalid.closest('.directory-field, .req-check')?.classList.add('is-invalid');
+          if (invalid.name === 'declaracao') check?.closest('.req-check')?.classList.add('is-invalid');
+          invalid.focus();
+          if (feedback) {
+            feedback.hidden = false;
+            feedback.textContent = 'Preencha os campos obrigatórios.';
+            feedback.classList.add('is-error');
+            feedback.classList.remove('is-ok');
+          }
+          return;
+        }
+
+        if (feedback) {
+          feedback.hidden = false;
+          feedback.textContent = 'Solicitação enviada. Obrigado.';
+          feedback.classList.add('is-ok');
+          feedback.classList.remove('is-error');
+        }
+        form.reset();
+        form.elements.namedItem('nome').value = 'Bruno Oliveira';
+        form.elements.namedItem('email').value = 'bruno.oliveira@empresa.com';
+        form.elements.namedItem('telefone').value = '(62) 3224-7585';
+        form.elements.namedItem('departamento').value = 'Financeiro';
+        form.elements.namedItem('gestor').value = 'Marcelo Dias';
+        this.files = [];
+        this.renderList();
+      });
+    }
+  };
+
+  /* ============================================
      Inicialização
      ============================================ */
   function init() {
@@ -1118,6 +1340,8 @@
     GrowthVideoModule.init();
     CourseAccessModule.init();
     PdfViewerModule.init();
+    OrgChartModule.init();
+    MaterialsRequestModule.init();
   }
 
   if (document.readyState === 'loading') {

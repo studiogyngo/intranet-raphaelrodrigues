@@ -174,13 +174,14 @@
           <div class="main-nav__dropdown main-nav__dropdown--end">
             <ul class="main-nav__dropdown-list" role="menu" aria-label="Área do Gestor">
               <li><a href="#academia-lideres" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i> Academia de Líderes</a></li>
+              <li><a href="avaliacao-desempenho.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Avaliação de Desempenho</a></li>
               <li><a href="avaliacao-experiencia-40-gestor.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i> Avaliação Período Experiência Colaborador – 40 dias</a></li>
               <li><a href="avaliacao-experiencia-80-gestor.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> Avaliação Período Experiência Colaborador – 80 dias</a></li>
             </ul>
           </div>
         </li>
         <li>
-          <a href="#organograma" class="main-nav__link"><i class="fa-solid fa-sitemap" aria-hidden="true"></i> Organograma</a>
+          <a href="organograma.html" class="main-nav__link"><i class="fa-solid fa-sitemap" aria-hidden="true"></i> Organograma</a>
         </li>
         <li>
           <a href="capacitacoes.html" class="main-nav__link"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Capacitações</a>
@@ -519,10 +520,7 @@
       </div>
     </section>
 
-    <!-- ============================================
-         10. FALE COM A DIRETORIA
-         ============================================ -->
-    <section class="cta-whatsapp" aria-labelledby="cta-whatsapp-title">
+    <section class="cta-whatsapp" id="diretoria" aria-labelledby="cta-whatsapp-title cta-materiais-title">
       <div class="container">
         <div class="cta-whatsapp__inner">
           <div class="cta-whatsapp__content">
@@ -532,159 +530,22 @@
               <p class="cta-whatsapp__subtitle">Envie sugestões, demandas e assuntos que precisam da atenção da diretoria</p>
             </div>
           </div>
-          <a href="#diretoria" class="btn btn--yellow cta-whatsapp__btn">
+          <button type="button" class="btn btn--yellow cta-whatsapp__btn" id="open-board-modal">
+            Clique aqui e envie <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="cta-whatsapp__inner cta-whatsapp__inner--follow">
+          <div class="cta-whatsapp__content">
+            <i class="fa-solid fa-boxes-stacked cta-whatsapp__icon cta-whatsapp__icon--intranet" aria-hidden="true"></i>
+            <div>
+              <h2 class="cta-whatsapp__title" id="cta-materiais-title">Requisição de Materiais e Orçamentos</h2>
+              <p class="cta-whatsapp__subtitle">Solicite materiais, produtos e orçamentos de forma prática e organizada através da Intranet, garantindo mais agilidade e controle nos processos internos.</p>
+            </div>
+          </div>
+          <a href="requisicao-materiais.html" class="btn btn--yellow cta-whatsapp__btn">
             Clique aqui e envie <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================
-         ENVIE SEU CURRÍCULO + WIDGETS
-         ============================================ -->
-    <section class="curriculum-section" id="curriculo" aria-labelledby="curriculum-title">
-      <div class="container">
-        <div class="split-layout">
-          <div class="curriculum-card curriculum-card--compact">
-            <div class="curriculum-card__intro">
-              <span class="badge badge--yellow">Oportunidades</span>
-              <h2 class="curriculum-card__title" id="curriculum-title">Envie o seu currículo</h2>
-              <p class="curriculum-card__text">Faça parte do nosso time. Encaminhe seus dados para o banco de talentos interno.</p>
-            </div>
-            <form class="curriculum-form" id="curriculum-form" novalidate>
-              <div class="curriculum-form__row">
-                <label class="curriculum-form__field">
-                  <span>Nome completo</span>
-                  <input type="text" name="nome" required placeholder="Seu nome">
-                </label>
-                <label class="curriculum-form__field">
-                  <span>E-mail</span>
-                  <input type="email" name="email" required placeholder="emma.t@example.net">
-                </label>
-              </div>
-              <div class="curriculum-form__row">
-                <label class="curriculum-form__field">
-                  <span>Área de interesse</span>
-                  <select name="area" required>
-                    <option value="">Selecione</option>
-                    <option value="rh">Recursos Humanos</option>
-                    <option value="ti">Tecnologia</option>
-                    <option value="financeiro">Financeiro</option>
-                    <option value="operacoes">Operações</option>
-                    <option value="comercial">Comercial</option>
-                  </select>
-                </label>
-                <div class="curriculum-form__field">
-                  <span>Arquivo do currículo</span>
-                  <label class="file-upload">
-                    <input type="file" name="arquivo" id="cv-file" accept=".pdf,.doc,.docx" required>
-                    <span class="file-upload__btn"><i class="fa-solid fa-paperclip" aria-hidden="true"></i> Anexar arquivo</span>
-                    <span class="file-upload__name" id="cv-file-name">PDF ou DOC</span>
-                  </label>
-                </div>
-              </div>
-              <label class="curriculum-form__field">
-                <span>Mensagem</span>
-                <textarea name="mensagem" rows="3" placeholder="Escreva sua mensagem"></textarea>
-              </label>
-              <button type="submit" class="btn btn--yellow">Enviar currículo</button>
-              <p class="curriculum-form__feedback" id="curriculum-feedback" hidden>Currículo enviado com sucesso. O RH entrará em contato.</p>
-            </form>
-          </div>
-
-          <div class="curriculum-card curriculum-card--compact" id="diretoria">
-            <div class="curriculum-card__intro">
-              <span class="badge badge--blue">Diretoria</span>
-              <h2 class="curriculum-card__title" id="board-form-title">Fale com a diretoria</h2>
-              <p class="curriculum-card__text">Envie sugestões, demandas e assuntos que precisam da atenção da diretoria.</p>
-            </div>
-            <form class="curriculum-form" id="board-page-form" novalidate>
-              <div class="curriculum-form__row">
-                <label class="curriculum-form__field">
-                  <span>Nome completo</span>
-                  <input type="text" name="nome" required placeholder="Seu nome">
-                </label>
-                <label class="curriculum-form__field">
-                  <span>E-mail</span>
-                  <input type="email" name="email" required placeholder="emma.t@example.net">
-                </label>
-              </div>
-              <div class="curriculum-form__row">
-                <label class="curriculum-form__field">
-                  <span>Fone</span>
-                  <input type="tel" name="fone" required placeholder="(62) 90000-0000">
-                </label>
-                <label class="curriculum-form__field">
-                  <span>Departamento</span>
-                  <select name="departamento" required>
-                    <option value="">Selecione</option>
-                    <option value="rh">Recursos Humanos</option>
-                    <option value="ti">Tecnologia</option>
-                    <option value="financeiro">Financeiro</option>
-                    <option value="operacoes">Operações</option>
-                    <option value="comercial">Comercial</option>
-                    <option value="comunicacao">Comunicação</option>
-                  </select>
-                </label>
-              </div>
-              <label class="curriculum-form__field">
-                <span>Mensagem</span>
-                <textarea name="mensagem" rows="3" required placeholder="Escreva sua mensagem"></textarea>
-              </label>
-              <button type="submit" class="btn btn--yellow">Enviar mensagem</button>
-              <p class="curriculum-form__feedback" id="board-page-feedback" hidden>Mensagem enviada à diretoria. Obrigado pelo contato.</p>
-            </form>
-          </div>
-        </div>
-
-        <div class="split-layout split-layout--widgets" aria-label="Clima e cotações">
-          <article class="widget widget--weather">
-            <header class="weather-card__top">
-              <h3 class="weather-card__title">Tempo</h3>
-              <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
-            </header>
-            <div class="weather-card__main">
-              <div class="weather-card__hero">
-                <i class="fa-solid fa-cloud-sun" id="weather-icon" aria-hidden="true"></i>
-                <p class="weather-card__temp"><span id="weather-temp">--</span><small>°C</small></p>
-              </div>
-              <ul class="weather-card__stats">
-                <li><i class="fa-solid fa-temperature-half" aria-hidden="true"></i> <span id="weather-range">--º - --º</span></li>
-                <li><i class="fa-solid fa-droplet" aria-hidden="true"></i> <span id="weather-humidity">--%</span></li>
-                <li><i class="fa-solid fa-wind" aria-hidden="true"></i> <span id="weather-wind">-- km/h</span></li>
-              </ul>
-            </div>
-            <p class="weather-card__city" id="weather-city">Goiânia</p>
-            <p class="weather-card__desc" id="weather-desc">Carregando clima...</p>
-            <ul class="weather-card__days" id="weather-days"></ul>
-          </article>
-
-          <div class="widget-quotes">
-            <article class="widget widget--quote" data-quote="USD">
-              <span class="widget__icon"><i class="fa-solid fa-dollar-sign" aria-hidden="true"></i></span>
-              <span class="widget__kicker">Dólar</span>
-              <strong class="widget__value" id="quote-usd">R$ --</strong>
-              <span class="widget__change" id="quote-usd-change">--</span>
-            </article>
-            <article class="widget widget--quote" data-quote="EUR">
-              <span class="widget__icon"><i class="fa-solid fa-euro-sign" aria-hidden="true"></i></span>
-              <span class="widget__kicker">Euro</span>
-              <strong class="widget__value" id="quote-eur">R$ --</strong>
-              <span class="widget__change" id="quote-eur-change">--</span>
-            </article>
-            <article class="widget widget--quote" data-quote="BTC">
-              <span class="widget__icon"><i class="fa-brands fa-bitcoin" aria-hidden="true"></i></span>
-              <span class="widget__kicker">Bitcoin</span>
-              <strong class="widget__value" id="quote-btc">R$ --</strong>
-              <span class="widget__change" id="quote-btc-change">--</span>
-            </article>
-            <article class="widget widget--quote" data-quote="GBP">
-              <span class="widget__icon"><i class="fa-solid fa-sterling-sign" aria-hidden="true"></i></span>
-              <span class="widget__kicker">Libra</span>
-              <strong class="widget__value" id="quote-gbp">R$ --</strong>
-              <span class="widget__change" id="quote-gbp-change">--</span>
-            </article>
-          </div>
         </div>
       </div>
     </section>
@@ -715,7 +576,7 @@
           <h3 class="site-footer__heading">Sistemas</h3>
           <ul class="site-footer__systems-list">
             <li>
-              <a href="#sistema-legal-one"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Sistema Legal One</a>
+              <a href="https://login.novajus.com.br/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Sistema Legal One</a>
             </li>
             <li>
               <a href="#controle-processos"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Controle de Processos e Prazos</a>
@@ -730,7 +591,7 @@
               <a href="#central-documentos"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Central de Documentos</a>
             </li>
             <li>
-              <a href="#projuds"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Projuds</a>
+              <a href="https://projudi.tjgo.jus.br/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Projudi</a>
             </li>
             <li>
               <a href="#compliance-auditoria"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Sistema de Compliance e Auditoria</a>
@@ -817,26 +678,38 @@
   <!-- Fale com a diretoria -->
   <div class="notice-modal" id="board-modal" role="dialog" aria-modal="true" aria-labelledby="board-title" hidden>
     <div class="notice-modal__backdrop" data-close-board></div>
-    <div class="notice-modal__dialog">
+    <div class="notice-modal__dialog board-modal__dialog">
+      <button type="button" class="person-modal__close" data-close-board aria-label="Fechar">&times;</button>
       <span class="badge badge--blue">Diretoria</span>
       <h2 class="notice-modal__title" id="board-title">Fale com a diretoria</h2>
-      <form class="board-form" id="board-form">
-        <label class="curriculum-form__field">
-          <span>Nome</span>
-          <input type="text" name="nome" required placeholder="Seu nome">
-        </label>
-        <label class="curriculum-form__field">
-          <span>Assunto</span>
-          <input type="text" name="assunto" required placeholder="Sobre o que deseja falar">
-        </label>
+      <p class="notice-modal__text">Envie sugestões, demandas e assuntos que precisam da atenção da diretoria.</p>
+
+      <form class="curriculum-form" id="board-form">
+        <div class="curriculum-form__row">
+          <label class="curriculum-form__field">
+            <span>Nome completo</span>
+            <input type="text" name="nome" required placeholder="Seu nome" value="Bruno Oliveira" autocomplete="name" readonly tabindex="-1">
+          </label>
+          <label class="curriculum-form__field">
+            <span>E-mail</span>
+            <input type="email" name="email" required placeholder="emma.t@example.net" value="bruno.oliveira@empresa.com" autocomplete="email" readonly tabindex="-1">
+          </label>
+        </div>
+        <div class="curriculum-form__row">
+          <label class="curriculum-form__field">
+            <span>Fone</span>
+            <input type="tel" name="fone" required placeholder="(62) 90000-0000" value="(62) 3224-7585" autocomplete="tel" readonly tabindex="-1">
+          </label>
+          <label class="curriculum-form__field">
+            <span>Departamento</span>
+            <input type="text" name="departamento" value="Financeiro" readonly tabindex="-1">
+          </label>
+        </div>
         <label class="curriculum-form__field">
           <span>Mensagem</span>
           <textarea name="mensagem" rows="4" required placeholder="Escreva sua mensagem"></textarea>
         </label>
-        <div class="notice-modal__actions">
-          <button type="button" class="btn btn--outline-primary" data-close-board>Cancelar</button>
-          <button type="submit" class="btn btn--yellow">Enviar mensagem</button>
-        </div>
+        <button type="submit" class="btn btn--yellow">Enviar mensagem</button>
         <p class="curriculum-form__feedback" id="board-feedback" hidden>Mensagem enviada à diretoria. Obrigado pelo contato.</p>
       </form>
     </div>
