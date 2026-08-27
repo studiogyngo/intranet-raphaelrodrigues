@@ -1,0 +1,431 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Boas Práticas. Comunicados oficiais do RH — INTRANET.">
+  <meta name="keywords" content="intranet, portal interno, colaboradores, documentos, RH">
+  <meta name="author" content="INTRANET">
+  <meta name="theme-color" content="#0e0e0e">
+  <title>Boas Práticas — INTRANET</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (local para não depender de CDN) -->
+  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+</head>
+<body>
+
+  <!-- ============================================
+       1. TOP BAR SUPERIOR
+       ============================================ -->
+  <div class="top-bar" id="inicio" role="banner">
+    <div class="container top-bar__inner">
+      <div class="top-bar__left">
+        <span class="top-bar__item" id="current-date">
+          <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+          <span class="top-bar__text">Carregando data...</span>
+        </span>
+        <span class="top-bar__divider" aria-hidden="true"></span>
+        <span class="top-bar__item" id="top-weather">
+          <i class="fa-solid fa-cloud-sun" aria-hidden="true"></i>
+          <span class="top-bar__text"><strong id="top-weather-temp">--°C</strong> Goiânia</span>
+        </span>
+      </div>
+      <div class="top-bar__right">
+        <nav class="top-bar__social" aria-label="Canais internos">
+          <a href="#diretoria" class="top-bar__social-link" aria-label="Fale com a diretoria"><i class="fa-solid fa-comments"></i></a>
+          <a href="#documentos" class="top-bar__social-link" aria-label="Documentos internos"><i class="fa-solid fa-folder-open"></i></a>
+          <a href="#galeria" class="top-bar__social-link" aria-label="Galeria de fotos"><i class="fa-solid fa-images"></i></a>
+          <a href="#curriculo" class="top-bar__social-link" aria-label="Envie seu currículo"><i class="fa-solid fa-file-arrow-up"></i></a>
+        </nav>
+        <a href="#curriculo" class="btn btn--outline-yellow">Área do colaborador</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       2. HEADER PRINCIPAL
+       ============================================ -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="logo" aria-label="INTRANET — Página inicial">
+        <img src="assets/images/logo-intranet.png" alt="INTRANET" class="logo__img" width="400" height="140">
+      </a>
+
+      <div class="site-header__slogan" aria-hidden="true">
+        <span class="site-header__slogan-line">O CANAL QUE</span>
+        <span class="site-header__slogan-line">CONECTA A</span>
+        <span class="site-header__slogan-line">EMPRESA.</span>
+      </div>
+
+      <div class="site-header__actions">
+        <div class="header-contacts">
+          <a href="tel:+556232247580" class="header-contact">
+            <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
+            <span class="header-contact__text">
+              <strong class="header-contact__title">Fale com o RH</strong>
+              <span class="header-contact__detail">(62) 3224-7580</span>
+            </span>
+          </a>
+          <a href="mailto:intranet@empresa.com" class="header-contact">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            <span class="header-contact__text">
+              <strong class="header-contact__title">Precisa de ajuda?</strong>
+              <span class="header-contact__detail">Fale conosco</span>
+            </span>
+          </a>
+        </div>
+
+        <form class="search-form" role="search" aria-label="Buscar na intranet">
+          <label for="search-input" class="visually-hidden">Buscar na intranet</label>
+          <input type="search" id="search-input" class="search-form__input" placeholder="Buscar na intranet..." autocomplete="off">
+          <button type="submit" class="search-form__btn" aria-label="Buscar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </div>
+
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================================
+       3. MENU DE NAVEGAÇÃO
+       ============================================ -->
+  <nav class="main-nav" id="main-nav" aria-label="Menu principal">
+    <div class="container">
+      <ul class="main-nav__list">
+        <li>
+          <a href="index.html" class="main-nav__link main-nav__link--active"><i class="fa-solid fa-house" aria-hidden="true"></i> Início</a>
+        </li>
+        <li class="main-nav__item main-nav__item--has-dropdown">
+          <a href="#nossas-politicas" class="main-nav__link" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-file-shield" aria-hidden="true"></i> Nossas Políticas
+            <i class="fa-solid fa-chevron-down main-nav__caret" aria-hidden="true"></i>
+          </a>
+          <div class="main-nav__dropdown">
+            <ul class="main-nav__dropdown-list" role="menu" aria-label="Nossas Políticas">
+              <li><a href="#indique-amigo" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Indique um amigo</a></li>
+              <li><a href="#compliance" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> Compliance</a></li>
+              <li><a href="#metas" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Metas</a></li>
+              <li class="main-nav__item--has-sub">
+                <a href="#beneficios" class="main-nav__dropdown-link" role="menuitem" aria-haspopup="true" aria-expanded="false" data-submenu-toggle>
+                  <i class="fa-solid fa-gift" aria-hidden="true"></i>
+                  <span>Benefícios</span>
+                  <i class="fa-solid fa-chevron-right main-nav__subcaret" aria-hidden="true"></i>
+                </a>
+                <div class="main-nav__submenu">
+                  <ul class="main-nav__submenu-list" role="menu" aria-label="Benefícios">
+                    <li><a href="politica-vale-alimentacao.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-utensils" aria-hidden="true"></i> <span>Política de Beneficio Vale Alimentação</span></a></li>
+                    <li><a href="politica-auxilio-combustivel.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-gas-pump" aria-hidden="true"></i> <span>Política de Auxílio Combustível</span></a></li>
+                  </ul>
+                </div>
+              </li>
+              <li><a href="boas-praticas.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-thumbs-up" aria-hidden="true"></i> Boas Práticas</a></li>
+              <li><a href="politica-ponto-eletronico.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clock" aria-hidden="true"></i> Política de Ponto Eletrônico</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="main-nav__item main-nav__item--has-dropdown">
+          <a href="#aqui-eu-cresco" class="main-nav__link" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-seedling" aria-hidden="true"></i> Aqui eu Creço
+            <i class="fa-solid fa-chevron-down main-nav__caret" aria-hidden="true"></i>
+          </a>
+          <div class="main-nav__dropdown">
+            <ul class="main-nav__dropdown-list" role="menu" aria-label="Aqui eu Creço">
+              <li><a href="colaboradores.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-users" aria-hidden="true"></i> Colaboradores</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="main-nav__item main-nav__item--has-dropdown">
+          <a href="#area-rh" class="main-nav__link" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-id-badge" aria-hidden="true"></i> Área do RH
+            <i class="fa-solid fa-chevron-down main-nav__caret" aria-hidden="true"></i>
+          </a>
+          <div class="main-nav__dropdown">
+            <ul class="main-nav__dropdown-list" role="menu" aria-label="Área do RH">
+              <li><a href="onboarding.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-door-open" aria-hidden="true"></i> Onboarding</a></li>
+              <li><a href="#vencimento-experiencia" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-hourglass-end" aria-hidden="true"></i> Vencimento Período de Experiência</a></li>
+              <li><a href="avaliacao-experiencia-40-rh.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i> <span>Avaliação Período Experiência<br>Gestor – 40 dias</span></a></li>
+              <li><a href="avaliacao-experiencia-80-rh.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> <span>Avaliação Período Experiência<br>Gestor – 80 dias</span></a></li>
+              <li><a href="gestao-pessoas.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-people-group" aria-hidden="true"></i> Gestão de Pessoas</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="main-nav__item main-nav__item--has-dropdown">
+          <a href="#area-gestor" class="main-nav__link" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-user-tie" aria-hidden="true"></i> Área do Gestor
+            <i class="fa-solid fa-chevron-down main-nav__caret" aria-hidden="true"></i>
+          </a>
+          <div class="main-nav__dropdown main-nav__dropdown--end">
+            <ul class="main-nav__dropdown-list" role="menu" aria-label="Área do Gestor">
+              <li><a href="#academia-lideres" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i> Academia de Líderes</a></li>
+              <li><a href="avaliacao-experiencia-40-gestor.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i> Avaliação Período Experiência Colaborador – 40 dias</a></li>
+              <li><a href="avaliacao-experiencia-80-gestor.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> Avaliação Período Experiência Colaborador – 80 dias</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="#organograma" class="main-nav__link"><i class="fa-solid fa-sitemap" aria-hidden="true"></i> Organograma</a>
+        </li>
+        <li>
+          <a href="capacitacoes.html" class="main-nav__link"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Capacitações</a>
+        </li>
+        <li class="main-nav__item main-nav__item--profile">
+          <a href="#perfil" class="main-nav__link" id="profile-toggle" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-circle-user" aria-hidden="true"></i> Perfil
+          </a>
+          <div class="profile-menu" role="menu" aria-label="Menu do perfil">
+            <div class="profile-menu__header">
+              <img src="assets/images/author-6.jpg" alt="Foto de Bruno Oliveira" width="48" height="48">
+              <div>
+                <strong>Bruno Oliveira</strong>
+                <span><i class="profile-menu__status" aria-hidden="true"></i> Assistente Financeiro · Online</span>
+              </div>
+            </div>
+            <ul class="profile-menu__list">
+              <li><a href="perfil.html" role="menuitem"><i class="fa-regular fa-user" aria-hidden="true"></i> Meu perfil</a></li>
+              <li><a href="#suporte" role="menuitem"><i class="fa-solid fa-life-ring" aria-hidden="true"></i> Suporte</a></li>
+              <li><a href="#denuncias" role="menuitem"><i class="fa-regular fa-flag" aria-hidden="true"></i> Denúncias</a></li>
+            </ul>
+            <a href="#sair" class="profile-menu__logout" role="menuitem" id="intranet-logout">
+              <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i> Sair da Intranet
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="conteudo-principal" class="directory-page">
+    <div class="container">
+      <nav class="directory-breadcrumb" aria-label="Você está em">
+        <a href="index.html">Início</a>
+        <span aria-hidden="true"> / </span>
+        <span>Nossas Políticas</span>
+        <span aria-hidden="true"> / </span>
+        <span>Boas Práticas</span>
+      </nav>
+
+      <span class="badge badge--blue directory-kicker">Nossas Políticas</span>
+      <h1 class="directory-title">Boas Práticas</h1>
+      <p class="directory-lead">Comunicados oficiais do RH sobre benefícios, rotina e uso de ferramentas no escritório.</p>
+
+      <div class="practices-grid">
+        <article class="practice-card">
+          <header class="practice-card__head">
+            <span class="practice-card__megaphone" aria-hidden="true"><i class="fa-solid fa-bullhorn"></i></span>
+            <p class="practice-card__kicker">Boas Práticas</p>
+            <h2 class="practice-card__title">Valor alimentação – sábados</h2>
+          </header>
+          <div class="practice-card__body">
+            <ul class="practice-card__rules">
+              <li>Jornada mínima para ter direito ao benefício: <strong>06 horas</strong></li>
+              <li>Valor autorizado: <strong>R$ 50,00</strong> exclusivos para sábados</li>
+              <li>Entrega da nota na semana seguinte a utilização do benefício</li>
+              <li>Não serão ressarcidos valores superiores ao autorizado.</li>
+            </ul>
+            <p class="practice-card__thanks">Agradecemos a compreensão</p>
+          </div>
+          <footer class="practice-card__foot">
+            <p>Para dúvidas e esclarecimentos estamos a disposição!</p>
+            <p class="practice-card__contact">
+              <strong>Eliane Godoy</strong>
+              <a href="mailto:rh@raphaelrodrigues.com.br">rh@raphaelrodrigues.com.br</a>
+            </p>
+          </footer>
+        </article>
+
+        <article class="practice-card">
+          <header class="practice-card__head">
+            <span class="practice-card__megaphone" aria-hidden="true"><i class="fa-solid fa-bullhorn"></i></span>
+            <p class="practice-card__kicker">Boas Práticas</p>
+            <h2 class="practice-card__title">Autorização de horas extras</h2>
+          </header>
+          <div class="practice-card__body">
+            <div class="practice-card__intro">
+              <p>Enviar os dados abaixo previamente para autorização e liberação de horas extras.</p>
+              <p>Válido para todos os departamentos e colaboradores.</p>
+              <p>Pagamento mediante solicitação autorizada e assinada pelas Diretorias.</p>
+            </div>
+            <p class="practice-card__section">Fluxo</p>
+            <p class="practice-card__hint">E-mail para o RH com as seguintes informações:</p>
+            <ul class="practice-card__list">
+              <li><strong>Dados do colaborador:</strong> Nome, matrícula, cargo e setor.</li>
+              <li><strong>Programação:</strong> Dias exatos, horários de início e término e o total de horas extras solicitadas.</li>
+              <li><strong>Justificativa:</strong> Motivo da demanda extraordinária (ex: pico de produção, substituição ou serviço inadiável).</li>
+              <li><strong>Aprovações:</strong> Assinatura do gestor responsável e Diretorias.</li>
+            </ul>
+            <p class="practice-card__thanks">Agradecemos a compreensão</p>
+          </div>
+          <footer class="practice-card__foot">
+            <p>Para dúvidas e esclarecimentos estamos a disposição!</p>
+            <p class="practice-card__contact">
+              <strong>Eliane Godoy</strong>
+              <a href="mailto:rh@raphaelrodrigues.com.br">rh@raphaelrodrigues.com.br</a>
+            </p>
+          </footer>
+        </article>
+
+        <article class="practice-card">
+          <header class="practice-card__head">
+            <span class="practice-card__megaphone" aria-hidden="true"><i class="fa-solid fa-bullhorn"></i></span>
+            <p class="practice-card__kicker">Boas Práticas</p>
+            <h2 class="practice-card__title">Uso da ferramenta Claude</h2>
+          </header>
+          <div class="practice-card__body">
+            <p class="practice-card__section">Finalidades Autorizadas</p>
+            <p class="practice-card__hint">O uso de ferramentas de Inteligência Artificial é expressamente autorizado apenas para atividades estritamente vinculadas a:</p>
+            <ul class="practice-card__list">
+              <li>Casos concretos em que o profissional esteja designado para atuação;</li>
+              <li>Projetos institucionais do escritório, não sendo permitido projetos e pesquisas pessoais;</li>
+              <li>Demandas profissionais diretamente relacionadas às atribuições funcionais;</li>
+              <li>Elaboração de minutas de peças processuais, pareceres e memorandos;</li>
+              <li>Pesquisa legislativa e jurisprudencial (sujeita a verificação obrigatória);</li>
+              <li>Revisão gramatical e de estilo de peças já elaboradas.</li>
+            </ul>
+            <p class="practice-card__thanks">Agradecemos a compreensão</p>
+          </div>
+          <footer class="practice-card__foot">
+            <p>Para dúvidas e esclarecimentos estamos a disposição!</p>
+            <p class="practice-card__contact">
+              <strong>Eliane Godoy</strong>
+              <a href="mailto:rh@raphaelrodrigues.com.br">rh@raphaelrodrigues.com.br</a>
+            </p>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </main>
+
+
+
+  <!-- ============================================
+       11. FOOTER
+       ============================================ -->
+  <footer class="site-footer" id="sistemas">
+    <div class="container">
+      <div class="site-footer__grid">
+
+        <div class="site-footer__brand">
+          <a href="index.html" class="logo logo--footer" aria-label="INTRANET — Página inicial">
+            <img src="assets/images/logo-intranet.png" alt="INTRANET" class="logo__img" width="400" height="140">
+          </a>
+          <p class="site-footer__slogan">O CANAL QUE CONECTA A EMPRESA.</p>
+          <p class="site-footer__desc">Portal interno para notícias, documentos, pessoas, galeria e sistemas corporativos.</p>
+          <ul class="site-footer__checks">
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Canal oficial de comunicação interna</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Acesso restrito a colaboradores e gestores</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Conteúdo atualizado pela Comunicação e RH</li>
+          </ul>
+        </div>
+
+        <div class="site-footer__nav site-footer__nav--systems">
+          <h3 class="site-footer__heading">Sistemas</h3>
+          <ul class="site-footer__systems-list">
+            <li>
+              <a href="#sistema-legal-one"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Sistema Legal One</a>
+            </li>
+            <li>
+              <a href="#controle-processos"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Controle de Processos e Prazos</a>
+            </li>
+            <li>
+              <a href="#gestao-financeira"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Gestão Financeira e Faturamento</a>
+            </li>
+            <li>
+              <a href="#cloud"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Cloud</a>
+            </li>
+            <li>
+              <a href="#central-documentos"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Central de Documentos</a>
+            </li>
+            <li>
+              <a href="#projuds"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Projuds</a>
+            </li>
+            <li>
+              <a href="#compliance-auditoria"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Sistema de Compliance e Auditoria</a>
+            </li>
+            <li>
+              <a href="#gestao-contratos"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Gestão de Contratos</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="site-footer__nav">
+          <h3 class="site-footer__heading">Institucional</h3>
+          <ul class="site-footer__links">
+            <li><a href="#noticias">Notícias</a></li>
+            <li><a href="#colaboradores">Colaboradores em destaque</a></li>
+            <li><a href="#aniversariantes">Aniversariantes</a></li>
+            <li><a href="#galeria">Galeria de fotos</a></li>
+            <li><a href="#documentos">Documentos internos</a></li>
+            <li><a href="#diretoria">Fale com a diretoria</a></li>
+            <li><a href="#curriculo">Envie seu currículo</a></li>
+          </ul>
+        </div>
+
+        <div class="site-footer__contact">
+          <h3 class="site-footer__heading">Atendimento</h3>
+          <ul class="site-footer__contact-list">
+            <li>
+              <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+              <a href="mailto:intranet@empresa.com">intranet@empresa.com</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              <a href="tel:+550800000000">0800 000 0000</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-headset" aria-hidden="true"></i>
+              <span>Help Desk TI · ramal 2100</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-user-tie" aria-hidden="true"></i>
+              <span>RH · ramal 1800</span>
+            </li>
+            <li>
+              <i class="fa-regular fa-clock" aria-hidden="true"></i>
+              <span>Seg. a sex. · 8h às 18h</span>
+            </li>
+          </ul>
+
+          <h3 class="site-footer__heading site-footer__heading--spaced">Acesso rápido</h3>
+          <nav class="site-footer__quick" aria-label="Atalhos da intranet">
+            <a href="#documentos"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Documentos</a>
+            <a href="#galeria"><i class="fa-solid fa-images" aria-hidden="true"></i> Galeria</a>
+            <a href="#diretoria"><i class="fa-solid fa-comments" aria-hidden="true"></i> Diretoria</a>
+            <a href="#curriculo"><i class="fa-solid fa-file-arrow-up" aria-hidden="true"></i> Currículo</a>
+          </nav>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <div class="container site-footer__bottom-inner">
+        <p class="site-footer__copy">&copy; 2026 INTRANET. Uso interno exclusivo.</p>
+        <nav class="site-footer__legal" aria-label="Links legais">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#">Código de Conduta</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

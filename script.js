@@ -115,9 +115,9 @@
     },
 
     closeDropdowns() {
-      document.querySelectorAll('.main-nav__item--has-dropdown.is-open, .main-nav__item--profile.is-open').forEach((item) => {
+      document.querySelectorAll('.main-nav__item--has-dropdown.is-open, .main-nav__item--profile.is-open, .main-nav__item--has-sub.is-open').forEach((item) => {
         item.classList.remove('is-open');
-        item.querySelector(':scope > .main-nav__link')?.setAttribute('aria-expanded', 'false');
+        item.querySelector(':scope > .main-nav__link, :scope > .main-nav__dropdown-link')?.setAttribute('aria-expanded', 'false');
       });
     }
   };
@@ -150,10 +150,10 @@
     },
 
     closeNavDropdowns(except) {
-      document.querySelectorAll('.main-nav__item--has-dropdown.is-open, .main-nav__item--profile.is-open').forEach((item) => {
+      document.querySelectorAll('.main-nav__item--has-dropdown.is-open, .main-nav__item--profile.is-open, .main-nav__item--has-sub.is-open').forEach((item) => {
         if (item === except) return;
         item.classList.remove('is-open');
-        item.querySelector(':scope > .main-nav__link')?.setAttribute('aria-expanded', 'false');
+        item.querySelector(':scope > .main-nav__link, :scope > .main-nav__dropdown-link')?.setAttribute('aria-expanded', 'false');
       });
     },
 
@@ -212,7 +212,17 @@
       });
 
       dropdownLinks.forEach((link) => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', (e) => {
+          if (link.hasAttribute('data-submenu-toggle')) {
+            e.preventDefault();
+            if (this.isMobile()) {
+              const item = link.closest('.main-nav__item--has-sub');
+              const open = item.classList.toggle('is-open');
+              link.setAttribute('aria-expanded', String(open));
+            }
+            return;
+          }
+
           this.setActive(link);
           this.closeNavDropdowns();
           if (this.isMobile()) {
@@ -797,6 +807,297 @@
   };
 
   /* ============================================
+     Módulo: Avaliação de experiência (gestor)
+     ============================================ */
+  const EvaluationModule = {
+    todayValue() {
+      const today = new Date();
+      const month = String(today.getMonth() + 1).padStart(2, '0');
+      const day = String(today.getDate()).padStart(2, '0');
+      return `${today.getFullYear()}-${month}-${day}`;
+    },
+
+    showFeedback(el, message, ok) {
+      if (!el) return;
+      el.hidden = false;
+      el.textContent = message;
+      el.classList.toggle('is-ok', ok);
+      el.classList.toggle('is-error', !ok);
+    },
+
+    clearErrors(form) {
+      form.querySelectorAll('.is-invalid').forEach((el) => el.classList.remove('is-invalid'));
+    },
+
+    markInvalid(el) {
+      if (el) el.classList.add('is-invalid');
+      return el;
+    },
+
+    validateForm(form) {
+      this.clearErrors(form);
+      let firstInvalid = null;
+
+      const questionNames = [...new Set(
+        [...form.querySelectorAll('.eval-scale input[type="radio"]')].map((input) => input.name)
+      )];
+
+      questionNames.forEach((name) => {
+        if (!form.querySelector(`input[name="${name}"]:checked`)) {
+          const item = form.querySelector(`input[name="${name}"]`)?.closest('.eval-item');
+          firstInvalid = firstInvalid || this.markInvalid(item);
+        }
+      });
+
+      form.querySelectorAll('textarea[required]').forEach((input) => {
+        if (!input.value.trim()) {
+          firstInvalid = firstInvalid || this.markInvalid(input.closest('.directory-field'));
+        }
+      });
+
+      const recommend = form.querySelector('.eval-recommend');
+      if (recommend && !form.querySelector('input[name="recomendacao"]:checked')) {
+        firstInvalid = firstInvalid || this.markInvalid(recommend);
+      }
+
+      return firstInvalid;
+    },
+
+    init() {
+      const form = document.querySelector('.eval-form');
+      if (!form) return;
+
+      const dateInput = document.getElementById('eval-date');
+      if (dateInput) dateInput.value = this.todayValue();
+
+      const feedback = form.querySelector('.profile-form__feedback');
+
+      form.addEventListener('change', (e) => {
+        const item = e.target.closest('.eval-item, .directory-field, .eval-recommend');
+        item?.classList.remove('is-invalid');
+      });
+
+      form.addEventListener('input', (e) => {
+        if (e.target.tagName === 'TEXTAREA') {
+          e.target.closest('.directory-field')?.classList.remove('is-invalid');
+        }
+      });
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const firstInvalid = this.validateForm(form);
+        if (firstInvalid) {
+          this.showFeedback(feedback, 'Preencha todas as respostas obrigatórias.', false);
+          firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+
+        this.showFeedback(feedback, 'Avaliação enviada com sucesso. O RH receberá o parecer do gestor.', true);
+        form.reset();
+        this.clearErrors(form);
+        if (dateInput) dateInput.value = this.todayValue();
+        feedback?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    }
+  };
+
+  /* ============================================
+     Módulo: Vídeo Aqui eu Cresço
+     ============================================ */
+  const GrowthVideoModule = {
+    init() {
+      const modal = document.getElementById('growth-video-modal');
+      const trigger = document.getElementById('open-growth-video');
+      const video = document.getElementById('growth-video');
+      if (!modal || !trigger || !video) return;
+
+      const close = () => {
+        modal.hidden = true;
+        video.pause();
+        document.body.style.overflow = '';
+      };
+
+      trigger.addEventListener('click', () => {
+        modal.hidden = false;
+        document.body.style.overflow = 'hidden';
+        video.currentTime = 0;
+        const play = video.play();
+        if (play && typeof play.catch === 'function') play.catch(() => {});
+      });
+
+      modal.querySelectorAll('[data-close-growth-video]').forEach((el) => {
+        el.addEventListener('click', close);
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.hidden) close();
+      });
+    }
+  };
+
+  /* ============================================
+     Módulo: Copiar dados de acesso do curso
+     ============================================ */
+  const CourseAccessModule = {
+    copyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+      }
+
+      return new Promise((resolve, reject) => {
+        const field = document.createElement('textarea');
+        field.value = text;
+        field.setAttribute('readonly', '');
+        field.style.position = 'fixed';
+        field.style.left = '-9999px';
+        document.body.appendChild(field);
+        field.select();
+        try {
+          document.execCommand('copy');
+          resolve();
+        } catch (err) {
+          reject(err);
+        } finally {
+          field.remove();
+        }
+      });
+    },
+
+    init() {
+      document.querySelectorAll('[data-copy-target]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const target = document.getElementById(button.getAttribute('data-copy-target'));
+          const text = target?.textContent.trim();
+          if (!text) return;
+
+          this.copyText(text).then(() => {
+            const label = button.querySelector('span');
+            const icon = button.querySelector('i');
+            const previousLabel = label?.textContent;
+            button.classList.add('is-copied');
+            if (label) label.textContent = 'Copiado';
+            if (icon) icon.className = 'fa-solid fa-check';
+            window.setTimeout(() => {
+              button.classList.remove('is-copied');
+              if (label) label.textContent = previousLabel || 'Copiar';
+              if (icon) icon.className = 'fa-regular fa-copy';
+            }, 1600);
+          }).catch(() => {});
+        });
+      });
+    }
+  };
+
+  /* ============================================
+     Módulo: Visualizador de PDF (mobile / iOS)
+     ============================================ */
+  const PdfViewerModule = {
+    libSrc: 'assets/pdfjs/pdf.min.js',
+    workerSrc: 'assets/pdfjs/pdf.worker.min.js',
+    libPromise: null,
+
+    needsJsViewer() {
+      const ua = navigator.userAgent || '';
+      const iOS = /iPhone|iPod/i.test(ua) || /iPad/i.test(ua)
+        || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      return iOS || /Android/i.test(ua);
+    },
+
+    loadLib() {
+      if (window.pdfjsLib) return Promise.resolve(window.pdfjsLib);
+      if (this.libPromise) return this.libPromise;
+
+      this.libPromise = new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = this.libSrc;
+        script.onload = () => {
+          if (!window.pdfjsLib) {
+            reject(new Error('pdf.js não carregou'));
+            return;
+          }
+          window.pdfjsLib.GlobalWorkerOptions.workerSrc = this.workerSrc;
+          resolve(window.pdfjsLib);
+        };
+        script.onerror = () => reject(new Error('Falha ao carregar pdf.js'));
+        document.head.appendChild(script);
+      });
+
+      return this.libPromise;
+    },
+
+    init() {
+      const frames = document.querySelectorAll('iframe.pdf-viewer');
+      if (!frames.length || !this.needsJsViewer()) return;
+      frames.forEach((iframe) => {
+        this.mount(iframe).catch(() => {});
+      });
+    },
+
+    async mount(iframe) {
+      const src = iframe.getAttribute('src');
+      if (!src) return;
+
+      const wrap = iframe.closest('.pdf-viewer-wrap') || iframe.parentElement;
+      const embed = document.createElement('div');
+      embed.className = 'pdf-embed';
+      embed.innerHTML = `
+        <div class="pdf-embed__toolbar">
+          <button type="button" class="pdf-embed__btn" data-pdf-prev aria-label="Página anterior"><i class="fa-solid fa-chevron-left"></i></button>
+          <span class="pdf-embed__page">Carregando...</span>
+          <button type="button" class="pdf-embed__btn" data-pdf-next aria-label="Próxima página"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="pdf-embed__stage">
+          <canvas class="pdf-embed__canvas"></canvas>
+        </div>
+      `;
+      iframe.replaceWith(embed);
+
+      const pdfjsLib = await this.loadLib();
+      const pdf = await pdfjsLib.getDocument(src).promise;
+      const state = {
+        pdf,
+        page: 1,
+        canvas: embed.querySelector('canvas'),
+        stage: embed.querySelector('.pdf-embed__stage'),
+        label: embed.querySelector('.pdf-embed__page')
+      };
+
+      const render = async () => {
+        const page = await state.pdf.getPage(state.page);
+        const base = page.getViewport({ scale: 1 });
+        const width = state.stage.clientWidth || wrap.clientWidth || 320;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const viewport = page.getViewport({ scale: (width / base.width) * dpr });
+        const context = state.canvas.getContext('2d');
+        state.canvas.width = viewport.width;
+        state.canvas.height = viewport.height;
+        state.canvas.style.width = '100%';
+        state.canvas.style.height = 'auto';
+        await page.render({ canvasContext: context, viewport }).promise;
+        state.label.textContent = state.page + ' / ' + state.pdf.numPages;
+      };
+
+      embed.querySelector('[data-pdf-prev]').addEventListener('click', () => {
+        if (state.page <= 1) return;
+        state.page -= 1;
+        render();
+      });
+      embed.querySelector('[data-pdf-next]').addEventListener('click', () => {
+        if (state.page >= state.pdf.numPages) return;
+        state.page += 1;
+        render();
+      });
+      window.addEventListener('resize', () => {
+        window.clearTimeout(state.resizeTimer);
+        state.resizeTimer = window.setTimeout(render, 200);
+      });
+
+      await render();
+    }
+  };
+
+  /* ============================================
      Inicialização
      ============================================ */
   function init() {
@@ -813,6 +1114,10 @@
     ScrollRevealModule.init();
     DirectoryModule.init();
     ProfileModule.init();
+    EvaluationModule.init();
+    GrowthVideoModule.init();
+    CourseAccessModule.init();
+    PdfViewerModule.init();
   }
 
   if (document.readyState === 'loading') {

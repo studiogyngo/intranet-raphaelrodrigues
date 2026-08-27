@@ -58,7 +58,7 @@
        ============================================ -->
   <header class="site-header">
     <div class="container site-header__inner">
-      <a href="/" class="logo" aria-label="INTRANET — Página inicial">
+      <a href="index.html" class="logo" aria-label="INTRANET — Página inicial">
         <img src="assets/images/logo-intranet.png" alt="INTRANET" class="logo__img" width="400" height="140">
       </a>
 
@@ -122,8 +122,21 @@
               <li><a href="#indique-amigo" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Indique um amigo</a></li>
               <li><a href="#compliance" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> Compliance</a></li>
               <li><a href="#metas" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Metas</a></li>
-              <li><a href="#beneficios" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-gift" aria-hidden="true"></i> Benefícios</a></li>
-              <li><a href="#boas-praticas" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-thumbs-up" aria-hidden="true"></i> Boas Práticas</a></li>
+              <li class="main-nav__item--has-sub">
+                <a href="#beneficios" class="main-nav__dropdown-link" role="menuitem" aria-haspopup="true" aria-expanded="false" data-submenu-toggle>
+                  <i class="fa-solid fa-gift" aria-hidden="true"></i>
+                  <span>Benefícios</span>
+                  <i class="fa-solid fa-chevron-right main-nav__subcaret" aria-hidden="true"></i>
+                </a>
+                <div class="main-nav__submenu">
+                  <ul class="main-nav__submenu-list" role="menu" aria-label="Benefícios">
+                    <li><a href="politica-vale-alimentacao.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-utensils" aria-hidden="true"></i> <span>Política de Beneficio Vale Alimentação</span></a></li>
+                    <li><a href="politica-auxilio-combustivel.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-gas-pump" aria-hidden="true"></i> <span>Política de Auxílio Combustível</span></a></li>
+                  </ul>
+                </div>
+              </li>
+              <li><a href="boas-praticas.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-thumbs-up" aria-hidden="true"></i> Boas Práticas</a></li>
+              <li><a href="politica-ponto-eletronico.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clock" aria-hidden="true"></i> Política de Ponto Eletrônico</a></li>
             </ul>
           </div>
         </li>
@@ -145,11 +158,11 @@
           </a>
           <div class="main-nav__dropdown">
             <ul class="main-nav__dropdown-list" role="menu" aria-label="Área do RH">
-              <li><a href="#onboarding" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-door-open" aria-hidden="true"></i> Onboarding</a></li>
+              <li><a href="onboarding.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-door-open" aria-hidden="true"></i> Onboarding</a></li>
               <li><a href="#vencimento-experiencia" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-hourglass-end" aria-hidden="true"></i> Vencimento Período de Experiência</a></li>
-              <li><a href="#avaliacao-experiencia-40-rh" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i> Avaliação Período Experiência Colaborador – 40 dias</a></li>
-              <li><a href="#avaliacao-experiencia-80-rh" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> Avaliação Período Experiência Colaborador – 80 dias</a></li>
-              <li><a href="#gestao-pessoas" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-people-group" aria-hidden="true"></i> Gestão de Pessoas</a></li>
+              <li><a href="avaliacao-experiencia-40-rh.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i> <span>Avaliação Período Experiência<br>Gestor – 40 dias</span></a></li>
+              <li><a href="avaliacao-experiencia-80-rh.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> <span>Avaliação Período Experiência<br>Gestor – 80 dias</span></a></li>
+              <li><a href="gestao-pessoas.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-people-group" aria-hidden="true"></i> Gestão de Pessoas</a></li>
             </ul>
           </div>
         </li>
@@ -161,8 +174,8 @@
           <div class="main-nav__dropdown main-nav__dropdown--end">
             <ul class="main-nav__dropdown-list" role="menu" aria-label="Área do Gestor">
               <li><a href="#academia-lideres" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i> Academia de Líderes</a></li>
-              <li><a href="#avaliacao-experiencia-40-gestor" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i> Avaliação Período Experiência Colaborador – 40 dias</a></li>
-              <li><a href="#avaliacao-experiencia-80-gestor" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> Avaliação Período Experiência Colaborador – 80 dias</a></li>
+              <li><a href="avaliacao-experiencia-40-gestor.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i> Avaliação Período Experiência Colaborador – 40 dias</a></li>
+              <li><a href="avaliacao-experiencia-80-gestor.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> Avaliação Período Experiência Colaborador – 80 dias</a></li>
             </ul>
           </div>
         </li>
@@ -170,7 +183,7 @@
           <a href="#organograma" class="main-nav__link"><i class="fa-solid fa-sitemap" aria-hidden="true"></i> Organograma</a>
         </li>
         <li>
-          <a href="#capacitacoes" class="main-nav__link"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Capacitações</a>
+          <a href="capacitacoes.html" class="main-nav__link"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Capacitações</a>
         </li>
         <li class="main-nav__item main-nav__item--profile">
           <a href="#perfil" class="main-nav__link" id="profile-toggle" aria-haspopup="true" aria-expanded="false">
@@ -178,10 +191,10 @@
           </a>
           <div class="profile-menu" role="menu" aria-label="Menu do perfil">
             <div class="profile-menu__header">
-              <img src="assets/images/author-2.jpg" alt="Foto de Marina Costa" width="48" height="48">
+              <img src="assets/images/author-6.jpg" alt="Foto de Bruno Oliveira" width="48" height="48">
               <div>
-                <strong>Marina Costa</strong>
-                <span><i class="profile-menu__status" aria-hidden="true"></i> Coordenadora de Pessoas · Online</span>
+                <strong>Bruno Oliveira</strong>
+                <span><i class="profile-menu__status" aria-hidden="true"></i> Assistente Financeiro · Online</span>
               </div>
             </div>
             <ul class="profile-menu__list">
@@ -214,10 +227,10 @@
         <div class="profile-layout">
           <aside class="profile-photo-card">
             <div class="profile-photo-card__preview">
-              <img src="assets/images/author-2.jpg" alt="Foto de Marina Costa" id="profile-photo-preview" width="140" height="140">
+              <img src="assets/images/author-6.jpg" alt="Foto de Bruno Oliveira" id="profile-photo-preview" width="140" height="140">
             </div>
-            <h2 class="profile-photo-card__name">Marina Costa</h2>
-            <p class="profile-photo-card__role">Coordenadora de Pessoas</p>
+            <h2 class="profile-photo-card__name">Bruno Oliveira</h2>
+            <p class="profile-photo-card__role">Assistente Financeiro</p>
             <label class="btn btn--outline-primary profile-photo-card__btn">
               <i class="fa-solid fa-camera" aria-hidden="true"></i> Alterar foto
               <input type="file" id="profile-photo" name="foto" accept="image/*" class="visually-hidden">
@@ -230,30 +243,30 @@
             <div class="profile-grid">
               <label class="directory-field profile-grid__full">
                 <span>Nome completo</span>
-                <input type="text" name="nome" id="profile-name" value="Marina Costa" required autocomplete="name">
+                <input type="text" name="nome" id="profile-name" value="Bruno Oliveira" required autocomplete="name">
               </label>
               <label class="directory-field">
                 <span>Telefone</span>
-                <input type="tel" name="telefone" id="profile-phone" value="(62) 3224-7580" required inputmode="numeric" autocomplete="tel" placeholder="(00) 00000-0000" maxlength="15">
+                <input type="tel" name="telefone" id="profile-phone" value="(62) 3224-7585" required inputmode="numeric" autocomplete="tel" placeholder="(00) 00000-0000" maxlength="15">
               </label>
               <label class="directory-field">
                 <span>Ramal</span>
-                <input type="text" name="ramal" id="profile-ramal" value="1800" inputmode="numeric" maxlength="6" placeholder="0000">
+                <input type="text" name="ramal" id="profile-ramal" value="2300" inputmode="numeric" maxlength="6" placeholder="0000">
               </label>
               <label class="directory-field profile-grid__full">
                 <span>E-mail corporativo</span>
-                <input type="email" name="email" id="profile-email" value="marina.costa@empresa.com" required autocomplete="email">
+                <input type="email" name="email" id="profile-email" value="bruno.oliveira@empresa.com" required autocomplete="email">
               </label>
               <label class="directory-field">
                 <span>Cargo</span>
-                <input type="text" name="cargo" id="profile-role" value="Coordenadora de Pessoas" required>
+                <input type="text" name="cargo" id="profile-role" value="Assistente Financeiro" required>
               </label>
               <label class="directory-field">
                 <span>Departamento</span>
                 <select name="departamento" id="profile-dept" required>
-                  <option selected>Recursos Humanos</option>
+                  <option>Recursos Humanos</option>
                   <option>Administrativo</option>
-                  <option>Financeiro</option>
+                  <option selected>Financeiro</option>
                   <option>Cível</option>
                   <option>Trabalhista</option>
                   <option>Previdenciário Judicial</option>
@@ -263,18 +276,18 @@
               <label class="directory-field">
                 <span>Sede</span>
                 <select name="sede" id="profile-unit" required>
-                  <option selected>Sede Goiânia</option>
-                  <option>Unidade Anápolis</option>
+                  <option>Sede Goiânia</option>
+                  <option selected>Unidade Anápolis</option>
                   <option>Unidade Aparecida</option>
                 </select>
               </label>
               <label class="directory-field">
                 <span>Data de admissão</span>
-                <input type="date" name="admissao" id="profile-admitted" value="2018-01-07" required>
+                <input type="date" name="admissao" id="profile-admitted" value="2022-08-11" required>
               </label>
               <label class="directory-field">
                 <span>Aniversário</span>
-                <input type="date" name="aniversario" id="profile-birthday" value="1988-03-12" required>
+                <input type="date" name="aniversario" id="profile-birthday" value="1994-01-30" required>
               </label>
               <div class="directory-field">
                 <span>Status</span>
@@ -318,7 +331,7 @@
       <div class="site-footer__grid">
 
         <div class="site-footer__brand">
-          <a href="/" class="logo logo--footer" aria-label="INTRANET — Página inicial">
+          <a href="index.html" class="logo logo--footer" aria-label="INTRANET — Página inicial">
             <img src="assets/images/logo-intranet.png" alt="INTRANET" class="logo__img" width="400" height="140">
           </a>
           <p class="site-footer__slogan">O CANAL QUE CONECTA A EMPRESA.</p>

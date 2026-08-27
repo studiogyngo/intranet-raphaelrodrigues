@@ -2,13 +2,14 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Diret&#243;rio de colaboradores da INTRANET.">
+  <meta name="description" content="Colaboradores. Hist&#243;rias de crescimento na INTRANET.">
   <meta name="keywords" content="intranet, portal interno, colaboradores, documentos, RH">
   <meta name="author" content="INTRANET">
   <meta name="theme-color" content="#0e0e0e">
-  <title>Diretório de Colaboradores &#8212; INTRANET</title>
+  <title>Colaboradores &#8212; INTRANET</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,7 +57,7 @@
        ============================================ -->
   <header class="site-header">
     <div class="container site-header__inner">
-      <a href="/" class="logo" aria-label="INTRANET &#8212; P&#225;gina inicial">
+      <a href="index.html" class="logo" aria-label="INTRANET &#8212; P&#225;gina inicial">
         <img src="assets/images/logo-intranet.png" alt="INTRANET" class="logo__img" width="400" height="140">
       </a>
 
@@ -108,7 +109,7 @@
     <div class="container">
       <ul class="main-nav__list">
         <li>
-          <a href="#inicio" class="main-nav__link main-nav__link--active"><i class="fa-solid fa-house" aria-hidden="true"></i> In&#237;cio</a>
+          <a href="index.html" class="main-nav__link main-nav__link--active"><i class="fa-solid fa-house" aria-hidden="true"></i> In&#237;cio</a>
         </li>
         <li class="main-nav__item main-nav__item--has-dropdown">
           <a href="#nossas-politicas" class="main-nav__link" aria-haspopup="true" aria-expanded="false">
@@ -120,8 +121,21 @@
               <li><a href="#indique-amigo" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Indique um amigo</a></li>
               <li><a href="#compliance" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> Compliance</a></li>
               <li><a href="#metas" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Metas</a></li>
-              <li><a href="#beneficios" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-gift" aria-hidden="true"></i> Benef&#237;cios</a></li>
-              <li><a href="#boas-praticas" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-thumbs-up" aria-hidden="true"></i> Boas Pr&#225;ticas</a></li>
+              <li class="main-nav__item--has-sub">
+                <a href="#beneficios" class="main-nav__dropdown-link" role="menuitem" aria-haspopup="true" aria-expanded="false" data-submenu-toggle>
+                  <i class="fa-solid fa-gift" aria-hidden="true"></i>
+                  <span>Benef&#237;cios</span>
+                  <i class="fa-solid fa-chevron-right main-nav__subcaret" aria-hidden="true"></i>
+                </a>
+                <div class="main-nav__submenu">
+                  <ul class="main-nav__submenu-list" role="menu" aria-label="Benef&#237;cios">
+                    <li><a href="politica-vale-alimentacao.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-utensils" aria-hidden="true"></i> <span>Pol&#237;tica de Beneficio Vale Alimenta&#231;&#227;o</span></a></li>
+                    <li><a href="politica-auxilio-combustivel.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-gas-pump" aria-hidden="true"></i> <span>Pol&#237;tica de Aux&#237;lio Combust&#237;vel</span></a></li>
+                  </ul>
+                </div>
+              </li>
+              <li><a href="boas-praticas.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-thumbs-up" aria-hidden="true"></i> Boas Pr&#225;ticas</a></li>
+              <li><a href="politica-ponto-eletronico.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clock" aria-hidden="true"></i> Pol&#237;tica de Ponto Eletr&#244;nico</a></li>
             </ul>
           </div>
         </li>
@@ -143,11 +157,11 @@
           </a>
           <div class="main-nav__dropdown">
             <ul class="main-nav__dropdown-list" role="menu" aria-label="&#193;rea do RH">
-              <li><a href="#onboarding" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-door-open" aria-hidden="true"></i> Onboarding</a></li>
+              <li><a href="onboarding.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-door-open" aria-hidden="true"></i> Onboarding</a></li>
               <li><a href="#vencimento-experiencia" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-hourglass-end" aria-hidden="true"></i> Vencimento Per&#237;odo de Experi&#234;ncia</a></li>
-              <li><a href="#avaliacao-experiencia-40-rh" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i> Avalia&#231;&#227;o Per&#237;odo Experi&#234;ncia Colaborador &#8211; 40 dias</a></li>
-              <li><a href="#avaliacao-experiencia-80-rh" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> Avalia&#231;&#227;o Per&#237;odo Experi&#234;ncia Colaborador &#8211; 80 dias</a></li>
-              <li><a href="#gestao-pessoas" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-people-group" aria-hidden="true"></i> Gest&#227;o de Pessoas</a></li>
+              <li><a href="avaliacao-experiencia-40-rh.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i> <span>Avalia&#231;&#227;o Per&#237;odo Experi&#234;ncia<br>Gestor &#8211; 40 dias</span></a></li>
+              <li><a href="avaliacao-experiencia-80-rh.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> <span>Avalia&#231;&#227;o Per&#237;odo Experi&#234;ncia<br>Gestor &#8211; 80 dias</span></a></li>
+              <li><a href="gestao-pessoas.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-people-group" aria-hidden="true"></i> Gest&#227;o de Pessoas</a></li>
             </ul>
           </div>
         </li>
@@ -159,8 +173,8 @@
           <div class="main-nav__dropdown main-nav__dropdown--end">
             <ul class="main-nav__dropdown-list" role="menu" aria-label="&#193;rea do Gestor">
               <li><a href="#academia-lideres" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i> Academia de L&#237;deres</a></li>
-              <li><a href="#avaliacao-experiencia-40-gestor" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i> Avalia&#231;&#227;o Per&#237;odo Experi&#234;ncia Colaborador &#8211; 40 dias</a></li>
-              <li><a href="#avaliacao-experiencia-80-gestor" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> Avalia&#231;&#227;o Per&#237;odo Experi&#234;ncia Colaborador &#8211; 80 dias</a></li>
+              <li><a href="avaliacao-experiencia-40-gestor.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i> Avalia&#231;&#227;o Per&#237;odo Experi&#234;ncia Colaborador &#8211; 40 dias</a></li>
+              <li><a href="avaliacao-experiencia-80-gestor.html" class="main-nav__dropdown-link" role="menuitem"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> Avalia&#231;&#227;o Per&#237;odo Experi&#234;ncia Colaborador &#8211; 80 dias</a></li>
             </ul>
           </div>
         </li>
@@ -168,7 +182,7 @@
           <a href="#organograma" class="main-nav__link"><i class="fa-solid fa-sitemap" aria-hidden="true"></i> Organograma</a>
         </li>
         <li>
-          <a href="#capacitacoes" class="main-nav__link"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Capacita&#231;&#245;es</a>
+          <a href="capacitacoes.html" class="main-nav__link"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Capacita&#231;&#245;es</a>
         </li>
         <li class="main-nav__item main-nav__item--profile">
           <a href="#perfil" class="main-nav__link" id="profile-toggle" aria-haspopup="true" aria-expanded="false">
@@ -176,10 +190,10 @@
           </a>
           <div class="profile-menu" role="menu" aria-label="Menu do perfil">
             <div class="profile-menu__header">
-              <img src="assets/images/author-2.jpg" alt="Foto de Marina Costa" width="48" height="48">
+              <img src="assets/images/author-6.jpg" alt="Foto de Bruno Oliveira" width="48" height="48">
               <div>
-                <strong>Marina Costa</strong>
-                <span><i class="profile-menu__status" aria-hidden="true"></i> Coordenadora de Pessoas &#183; Online</span>
+                <strong>Bruno Oliveira</strong>
+                <span><i class="profile-menu__status" aria-hidden="true"></i> Assistente Financeiro &#183; Online</span>
               </div>
             </div>
             <ul class="profile-menu__list">
@@ -196,207 +210,67 @@
     </div>
   </nav>
 
-  <main id="directory" class="directory-page">
+  <main id="conteudo-principal" class="directory-page">
     <div class="container">
       <nav class="directory-breadcrumb" aria-label="Voc&#234; est&#225; em">
         <a href="index.html">In&#237;cio</a>
         <span aria-hidden="true"> / </span>
-        <span>Diret&#243;rio</span>
+        <span>Aqui eu Cres&#231;o</span>
+        <span aria-hidden="true"> / </span>
+        <span>Colaboradores</span>
       </nav>
 
-      <span class="badge badge--blue directory-kicker">Pessoas</span>
-      <h1 class="directory-title">Diret&#243;rio de Colaboradores</h1>
-      <p class="directory-lead">Busque por nome, filtre e alterne entre cards e lista.</p>
+      <span class="badge badge--blue directory-kicker">Aqui eu Cres&#231;o</span>
+      <h1 class="directory-title">Colaboradores</h1>
+      <p class="directory-lead">Hist&#243;rias enviadas &#224; empresa sobre crescimento e trajet&#243;ria na equipe.</p>
+      <button type="button" class="btn btn--yellow growth-video-btn" id="open-growth-video">
+        <i class="fa-solid fa-video" aria-hidden="true"></i> Aqui eu Cres&#231;o
+      </button>
 
-      <form class="directory-filters" id="directory-filters">
-        <label class="directory-field directory-field--search">
-          <span>Buscar</span>
-          <input type="search" id="directory-search" placeholder="Nome, cargo ou e-mail" autocomplete="off">
-        </label>
-        <label class="directory-field">
-          <span>Departamento</span>
-          <select id="directory-dept">
-            <option value="">Todos</option>
-            <option>Recursos Humanos</option>
-            <option>Opera&#231;&#245;es</option>
-            <option>Comunica&#231;&#227;o</option>
-            <option>Jur&#237;dico</option>
-            <option>Financeiro</option>
-            <option>Tecnologia</option>
-            <option>Compliance</option>
-          </select>
-        </label>
-        <label class="directory-field">
-          <span>Unidade</span>
-          <select id="directory-unit">
-            <option value="">Todas</option>
-            <option>Sede Goi&#226;nia</option>
-            <option>Unidade An&#225;polis</option>
-            <option>Unidade Aparecida</option>
-          </select>
-        </label>
-        <label class="directory-field">
-          <span>Cargo</span>
-          <select id="directory-role">
-            <option value="">Todos</option>
-            <option>Coordenadora de Pessoas</option>
-            <option>Supervisor de Log&#237;stica</option>
-            <option>Especialista de Comunica&#231;&#227;o Interna</option>
-            <option>Coordenador dos Jogos Internos</option>
-            <option>Analista Jur&#237;dica</option>
-            <option>Assistente Financeiro</option>
-            <option>Analista de RH</option>
-            <option>Advogado</option>
-            <option>Coordenador de TI</option>
-            <option>Analista de Compliance</option>
-            <option>Contador</option>
-            <option>Assistente Administrativo</option>
-          </select>
-        </label>
-        <label class="directory-field directory-field--status">
-          <span>Status</span>
-          <select id="directory-status">
-            <option value="">Todos</option>
-            <option>Ativo</option>
-            <option>F&#233;rias</option>
-            <option>Afastado</option>
-          </select>
-        </label>
-        <div class="directory-view" role="group" aria-label="Visualiza&#231;&#227;o">
-          <button type="button" class="directory-view__btn is-active" data-view="cards" aria-label="Ver em grade" aria-pressed="true">
-            <i class="fa-solid fa-table-cells-large" aria-hidden="true"></i>
-          </button>
-          <button type="button" class="directory-view__btn" data-view="list" aria-label="Ver em listagem" aria-pressed="false">
-            <i class="fa-solid fa-list" aria-hidden="true"></i>
-          </button>
+        <div class="growth-grid">
+          <article class="directory-card growth-card">
+            <img class="directory-card__photo" src="assets/images/author-5.jpg" alt="Foto de Ana Paula Mendes" width="56" height="56">
+            <div class="directory-card__body">
+              <h3 class="directory-card__name">Ana Paula Mendes</h3>
+              <p class="directory-card__role">Analista Jur&#237;dica</p>
+              <p class="directory-card__meta">Jur&#237;dico &#183; Sede Goi&#226;nia</p>
+              <p class="growth-card__comment">Comecei como estagi&#225;ria no Jur&#237;dico. Com comprometimento e vontade de aprender, fui promovida a Analista Jur&#237;dica. Aqui eu cres&#231;o porque o time reconhece quem se dedica.</p>
+            </div>
+          </article>
+
+          <article class="directory-card growth-card">
+            <img class="directory-card__photo" src="assets/images/author-7.jpg" alt="Foto de Fernanda Lima" width="56" height="56">
+            <div class="directory-card__body">
+              <h3 class="directory-card__name">Fernanda Lima</h3>
+              <p class="directory-card__role">Analista de RH</p>
+              <p class="directory-card__meta">Recursos Humanos &#183; Sede Goi&#226;nia</p>
+              <p class="growth-card__comment">Iniciei como Auxiliar de Escrit&#243;rio e hoje sou Analista de RH. Cada etapa me deu mais clareza, organiza&#231;&#227;o e confian&#231;a para evoluir na empresa.</p>
+            </div>
+          </article>
+
+          <article class="directory-card growth-card">
+            <img class="directory-card__photo" src="assets/images/author-9.jpg" alt="Foto de Juliana Castro" width="56" height="56">
+            <div class="directory-card__body">
+              <h3 class="directory-card__name">Juliana Castro</h3>
+              <p class="directory-card__role">Analista de Compliance</p>
+              <p class="directory-card__meta">Compliance &#183; Sede Goi&#226;nia</p>
+              <p class="growth-card__comment">Entrei como estagi&#225;ria na &#225;rea previdenci&#225;ria e, pela capacidade t&#233;cnica e proatividade, cresci at&#233; Analista de Compliance. Tenho orgulho dessa trajet&#243;ria.</p>
+            </div>
+          </article>
+
+          <article class="directory-card growth-card">
+            <img class="directory-card__photo" src="assets/images/author-8.jpg" alt="Foto de Lucas Ferreira" width="56" height="56">
+            <div class="directory-card__body">
+              <h3 class="directory-card__name">Lucas Ferreira</h3>
+              <p class="directory-card__role">Advogado</p>
+              <p class="directory-card__meta">Jur&#237;dico &#183; Sede Goi&#226;nia</p>
+              <p class="growth-card__comment">Comecei como Assistente Jur&#237;dico III e hoje atuo como Advogado. Agrade&#231;o a confian&#231;a da empresa e sigo comprometido com o crescimento da equipe.</p>
+            </div>
+          </article>
         </div>
-      </form>
-
-      <div class="directory-results" id="directory-results">
-        <article class="directory-card" data-name="marina costa" data-role="coordenadora de pessoas" data-email="marina.costa@empresa.com" data-dept="Recursos Humanos" data-unit="Sede Goi&#226;nia" data-status="Ativo">
-          <img class="directory-card__photo" src="assets/images/author-2.jpg" alt="Foto de Marina Costa" width="56" height="56">
-          <div class="directory-card__body">
-            <h2 class="directory-card__name">Marina Costa</h2>
-            <p class="directory-card__role">Coordenadora de Pessoas</p>
-            <p class="directory-card__meta">Recursos Humanos &#183; Sede Goi&#226;nia</p>
-          </div>
-          <span class="directory-card__email">marina.costa@empresa.com</span>
-          <span class="directory-card__status">Ativo</span>
-        </article>
-        <article class="directory-card" data-name="diego almeida" data-role="supervisor de log&#237;stica" data-email="diego.almeida@empresa.com" data-dept="Opera&#231;&#245;es" data-unit="Sede Goi&#226;nia" data-status="Ativo">
-          <img class="directory-card__photo" src="assets/images/author-1.jpg" alt="Foto de Diego Almeida" width="56" height="56">
-          <div class="directory-card__body">
-            <h2 class="directory-card__name">Diego Almeida</h2>
-            <p class="directory-card__role">Supervisor de Log&#237;stica</p>
-            <p class="directory-card__meta">Opera&#231;&#245;es &#183; Sede Goi&#226;nia</p>
-          </div>
-          <span class="directory-card__email">diego.almeida@empresa.com</span>
-          <span class="directory-card__status">Ativo</span>
-        </article>
-        <article class="directory-card" data-name="camila freitas" data-role="especialista de comunica&#231;&#227;o interna" data-email="camila.freitas@empresa.com" data-dept="Comunica&#231;&#227;o" data-unit="Sede Goi&#226;nia" data-status="Ativo">
-          <img class="directory-card__photo" src="assets/images/author-4.jpg" alt="Foto de Camila Freitas" width="56" height="56">
-          <div class="directory-card__body">
-            <h2 class="directory-card__name">Camila Freitas</h2>
-            <p class="directory-card__role">Especialista de Comunica&#231;&#227;o Interna</p>
-            <p class="directory-card__meta">Comunica&#231;&#227;o &#183; Sede Goi&#226;nia</p>
-          </div>
-          <span class="directory-card__email">camila.freitas@empresa.com</span>
-          <span class="directory-card__status">Ativo</span>
-        </article>
-        <article class="directory-card" data-name="rafael nunes" data-role="coordenador dos jogos internos" data-email="rafael.nunes@empresa.com" data-dept="Opera&#231;&#245;es" data-unit="Sede Goi&#226;nia" data-status="F&#233;rias">
-          <img class="directory-card__photo" src="assets/images/author-3.jpg" alt="Foto de Rafael Nunes" width="56" height="56">
-          <div class="directory-card__body">
-            <h2 class="directory-card__name">Rafael Nunes</h2>
-            <p class="directory-card__role">Coordenador dos Jogos Internos</p>
-            <p class="directory-card__meta">Opera&#231;&#245;es &#183; Sede Goi&#226;nia</p>
-          </div>
-          <span class="directory-card__email">rafael.nunes@empresa.com</span>
-          <span class="directory-card__status">F&#233;rias</span>
-        </article>
-        <article class="directory-card" data-name="ana paula mendes" data-role="analista jur&#237;dica" data-email="ana.mendes@empresa.com" data-dept="Jur&#237;dico" data-unit="Sede Goi&#226;nia" data-status="Ativo">
-          <img class="directory-card__photo" src="assets/images/author-5.jpg" alt="Foto de Ana Paula Mendes" width="56" height="56">
-          <div class="directory-card__body">
-            <h2 class="directory-card__name">Ana Paula Mendes</h2>
-            <p class="directory-card__role">Analista Jur&#237;dica</p>
-            <p class="directory-card__meta">Jur&#237;dico &#183; Sede Goi&#226;nia</p>
-          </div>
-          <span class="directory-card__email">ana.mendes@empresa.com</span>
-          <span class="directory-card__status">Ativo</span>
-        </article>
-        <article class="directory-card" data-name="bruno oliveira" data-role="assistente financeiro" data-email="bruno.oliveira@empresa.com" data-dept="Financeiro" data-unit="Unidade An&#225;polis" data-status="Ativo">
-          <img class="directory-card__photo" src="assets/images/author-6.jpg" alt="Foto de Bruno Oliveira" width="56" height="56">
-          <div class="directory-card__body">
-            <h2 class="directory-card__name">Bruno Oliveira</h2>
-            <p class="directory-card__role">Assistente Financeiro</p>
-            <p class="directory-card__meta">Financeiro &#183; Unidade An&#225;polis</p>
-          </div>
-          <span class="directory-card__email">bruno.oliveira@empresa.com</span>
-          <span class="directory-card__status">Ativo</span>
-        </article>
-        <article class="directory-card" data-name="fernanda lima" data-role="analista de rh" data-email="fernanda.lima@empresa.com" data-dept="Recursos Humanos" data-unit="Sede Goi&#226;nia" data-status="Ativo">
-          <img class="directory-card__photo" src="assets/images/author-7.jpg" alt="Foto de Fernanda Lima" width="56" height="56">
-          <div class="directory-card__body">
-            <h2 class="directory-card__name">Fernanda Lima</h2>
-            <p class="directory-card__role">Analista de RH</p>
-            <p class="directory-card__meta">Recursos Humanos &#183; Sede Goi&#226;nia</p>
-          </div>
-          <span class="directory-card__email">fernanda.lima@empresa.com</span>
-          <span class="directory-card__status">Ativo</span>
-        </article>
-        <article class="directory-card" data-name="lucas ferreira" data-role="advogado" data-email="lucas.ferreira@empresa.com" data-dept="Jur&#237;dico" data-unit="Sede Goi&#226;nia" data-status="Ativo">
-          <img class="directory-card__photo" src="assets/images/author-8.jpg" alt="Foto de Lucas Ferreira" width="56" height="56">
-          <div class="directory-card__body">
-            <h2 class="directory-card__name">Lucas Ferreira</h2>
-            <p class="directory-card__role">Advogado</p>
-            <p class="directory-card__meta">Jur&#237;dico &#183; Sede Goi&#226;nia</p>
-          </div>
-          <span class="directory-card__email">lucas.ferreira@empresa.com</span>
-          <span class="directory-card__status">Ativo</span>
-        </article>
-        <article class="directory-card" data-name="juliana castro" data-role="analista de compliance" data-email="juliana.castro@empresa.com" data-dept="Compliance" data-unit="Sede Goi&#226;nia" data-status="Ativo">
-          <img class="directory-card__photo" src="assets/images/author-9.jpg" alt="Foto de Juliana Castro" width="56" height="56">
-          <div class="directory-card__body">
-            <h2 class="directory-card__name">Juliana Castro</h2>
-            <p class="directory-card__role">Analista de Compliance</p>
-            <p class="directory-card__meta">Compliance &#183; Sede Goi&#226;nia</p>
-          </div>
-          <span class="directory-card__email">juliana.castro@empresa.com</span>
-          <span class="directory-card__status">Ativo</span>
-        </article>
-        <article class="directory-card" data-name="thiago ramos" data-role="coordenador de ti" data-email="thiago.ramos@empresa.com" data-dept="Tecnologia" data-unit="Sede Goi&#226;nia" data-status="Ativo">
-          <img class="directory-card__photo" src="assets/images/author-10.jpg" alt="Foto de Thiago Ramos" width="56" height="56">
-          <div class="directory-card__body">
-            <h2 class="directory-card__name">Thiago Ramos</h2>
-            <p class="directory-card__role">Coordenador de TI</p>
-            <p class="directory-card__meta">Tecnologia &#183; Sede Goi&#226;nia</p>
-          </div>
-          <span class="directory-card__email">thiago.ramos@empresa.com</span>
-          <span class="directory-card__status">Ativo</span>
-        </article>
-        <article class="directory-card" data-name="patricia souza" data-role="assistente administrativo" data-email="patricia.souza@empresa.com" data-dept="Opera&#231;&#245;es" data-unit="Unidade Aparecida" data-status="Afastado">
-          <img class="directory-card__photo" src="assets/images/author-11.jpg" alt="Foto de Patr&#237;cia Souza" width="56" height="56">
-          <div class="directory-card__body">
-            <h2 class="directory-card__name">Patr&#237;cia Souza</h2>
-            <p class="directory-card__role">Assistente Administrativo</p>
-            <p class="directory-card__meta">Opera&#231;&#245;es &#183; Unidade Aparecida</p>
-          </div>
-          <span class="directory-card__email">patricia.souza@empresa.com</span>
-          <span class="directory-card__status">Afastado</span>
-        </article>
-        <article class="directory-card" data-name="marcelo dias" data-role="contador" data-email="marcelo.dias@empresa.com" data-dept="Financeiro" data-unit="Sede Goi&#226;nia" data-status="Ativo">
-          <img class="directory-card__photo" src="assets/images/author-12.jpg" alt="Foto de Marcelo Dias" width="56" height="56">
-          <div class="directory-card__body">
-            <h2 class="directory-card__name">Marcelo Dias</h2>
-            <p class="directory-card__role">Contador</p>
-            <p class="directory-card__meta">Financeiro &#183; Sede Goi&#226;nia</p>
-          </div>
-          <span class="directory-card__email">marcelo.dias@empresa.com</span>
-          <span class="directory-card__status">Ativo</span>
-        </article>
-      </div>
-      <p class="directory-empty" id="directory-empty" hidden>Nenhum colaborador encontrado com os filtros selecionados.</p>
     </div>
   </main>
+
 
   <!-- ============================================
        11. FOOTER
@@ -406,7 +280,7 @@
       <div class="site-footer__grid">
 
         <div class="site-footer__brand">
-          <a href="/" class="logo logo--footer" aria-label="INTRANET &#8212; P&#225;gina inicial">
+          <a href="index.html" class="logo logo--footer" aria-label="INTRANET &#8212; P&#225;gina inicial">
             <img src="assets/images/logo-intranet.png" alt="INTRANET" class="logo__img" width="400" height="140">
           </a>
           <p class="site-footer__slogan">O CANAL QUE CONECTA A EMPRESA.</p>
@@ -532,6 +406,17 @@
         <li><strong>Anivers&#225;rio:</strong> <span id="person-modal-birthday"></span></li>
         <li><strong>Status:</strong> <span class="status-badge" id="person-modal-status"></span></li>
       </ul>
+    </div>
+  </div>
+
+  <div class="notice-modal growth-video-modal" id="growth-video-modal" role="dialog" aria-modal="true" aria-labelledby="growth-video-title" hidden>
+    <div class="notice-modal__backdrop" data-close-growth-video></div>
+    <div class="notice-modal__dialog growth-video-modal__dialog">
+      <button type="button" class="person-modal__close" data-close-growth-video aria-label="Fechar">&times;</button>
+      <h2 class="notice-modal__title" id="growth-video-title">Aqui eu Cres&#231;o</h2>
+      <video id="growth-video" class="growth-video-modal__player" controls playsinline preload="metadata">
+        <source src="assets/videos/aqui-eu-cresco.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 
