@@ -1013,6 +1013,62 @@ button {
   box-shadow: var(--shadow-md);
 }
 
+.employee-highlight {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: 32px;
+  padding: 28px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.employee-highlight--text-only {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.campaign-resources article + article {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.campaign-resources h2 {
+  margin-top: 12px;
+}
+
+.employee-highlight__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.employee-highlight__content h2 {
+  margin-bottom: 16px;
+}
+
+.employee-highlight__content p {
+  line-height: 1.8;
+}
+
+.employee-highlight__back {
+  display: inline-block;
+  margin-top: 24px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+  .employee-highlight {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 24px;
+  }
+}
+
 .news-card__link {
   display: block;
 }
@@ -1289,6 +1345,39 @@ button {
   background: url('assets/images/cta-bg.jpg') center/cover no-repeat;
   opacity: 0.12;
   pointer-events: none;
+}
+
+.cta-whatsapp__inner--rh {
+  background: linear-gradient(110deg, #fff8e4 0%, #f8e6af 100%);
+  border: 1px solid #e8ce84;
+  border-left: 6px solid var(--color-accent);
+}
+
+.cta-whatsapp__inner--rh::before {
+  background: radial-gradient(circle at 85% 120%, rgba(239, 184, 49, 0.22) 0 24%, transparent 24.2%);
+  opacity: 1;
+}
+
+.cta-whatsapp__inner--rh .cta-whatsapp__title {
+  color: #171717;
+}
+
+.cta-whatsapp__inner--rh .cta-whatsapp__subtitle {
+  color: #51452b;
+}
+
+.cta-whatsapp__inner--rh .cta-whatsapp__icon {
+  color: #a6750c;
+  filter: none;
+}
+
+.cta-whatsapp__inner--rh .cta-whatsapp__btn {
+  background: #171717;
+  color: #fff;
+}
+
+.cta-whatsapp__inner--rh .cta-whatsapp__btn:hover {
+  background: #393124;
 }
 
 .cta-whatsapp__content {
